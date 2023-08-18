@@ -4,8 +4,8 @@ Background:
     Given User navigates to the application
 
 Scenario Outline: Add Member
-    And User enter the username as "samueldunca@yahoo.com"
-    And User enter the password as "Frodo123"
+    And User enter the username as "<username>"
+    And User enter the password as "<password>"
     When User click on the signIn button
     Then Login should be success
     And the user clicks on the "Members" page button
