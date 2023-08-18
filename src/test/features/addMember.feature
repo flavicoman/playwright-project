@@ -16,7 +16,4 @@ Scenario Outline: Add Member
 
     Examples: 
     | username              |   password    |   firstName | lastName    |         email      |      phone       |    
-    | samueldunca@yahoo.com |   Frodo123    |   Sabin     | Negru       |    sabin@nibas.io  |      456789      |
-     | samueldunca@yahoo.com |   Frodo123    |   David     | Negru       |    david@divad.io  |      487358023   |
-     | samueldunca@yahoo.com |   Frodo123    |   Elida     | Negru       |    elida@adile.io  |      222222222   |
-    
+  
