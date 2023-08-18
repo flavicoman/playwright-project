@@ -1,0 +1,22 @@
+{
+  "name": "hellocucumber",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "cucumber-js test"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@cucumber/cucumber": "^9.4.0",
+    "@playwright/test": "^1.37.0",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.1.6"
+  },
+  "dependencies": {
+    "@jest/globals": "^29.6.2"
+  },
+  "debug": "node - inspect-brk=5858./node_modules/cucumber/bine/cucumber-js test/features/**/ -t'@yourtag'"
+}
