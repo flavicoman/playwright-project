@@ -5,11 +5,11 @@ module.exports = {
             "snippetInterface": "async-await"
         },
         "paths": [
-            "src/test/features/addReservation.feature" 
+            "src/test/features/addCustomer.feature" 
         ],
         "dryRun": false,
         "require": [
-            "src/test/steps/addReservation.ts"
+            "src/test/steps/*.ts"
         ],
         "requireModule": [
             "ts-node/register"
