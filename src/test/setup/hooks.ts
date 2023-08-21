@@ -14,6 +14,7 @@ BeforeAll(async () => {
 });
 
 AfterAll(async () => {
+  await pageFixture.page.close();
   await browser.close();
 });
 

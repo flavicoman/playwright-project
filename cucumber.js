@@ -6,10 +6,13 @@ module.exports = {
         },
         "paths": [
             "src/test/features/addCustomer.feature" 
+           
         ],
+        
         "dryRun": false,
         "require": [
-            "src/test/steps/*.ts"
+            "src/test/steps/*.ts",
+            "src/test/setup/hooks.ts"
         ],
         "requireModule": [
             "ts-node/register"
