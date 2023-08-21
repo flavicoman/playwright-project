@@ -24,9 +24,11 @@ Then('user navigates to customers page', {timeout: 90000}, async function () {
 //   });
 Then('user selects customers section',{timeout: 90000}, async function () {
     await new Promise(resolve => setTimeout(resolve, 2000));
-    await pageFixture.page.locator("//div[text()='Customers']").click();
+    await pageFixture.page.locator( "#scrollableDiv > div > div.tab-group.members-page > button:nth-child(2)").click();
     console.log("user is in the customers section");
     return Promise.resolve("pending");
+   
+    
   });
 
   Then('user clicks on the "+" button', async function (string) {

@@ -5,7 +5,7 @@ module.exports = {
             "snippetInterface": "async-await"
         },
         "paths": [
-            "src/test/features/addCustomer.feature" 
+            "src/test/features/editGeneralSettings.feature" 
            
         ],
         
@@ -17,6 +17,7 @@ module.exports = {
         "requireModule": [
             "ts-node/register"
         ]
+        
     },
     globals: {
         "ts-jest": {
