@@ -10,11 +10,13 @@ Feature: Edit general settings
     Then Login should be success
     And user navigates to general settings page 
     And user adds new settings : "<Name>" "<primaryEmail>" "<website>" "<adressLine1>" "<adressLine2>" "<City>" "<State>" "<Zip>" 
+    And user selects new bays : "<Bay>"
+    And user defines legal conditions 
     And user clicks the "save" button 
     Then settings should be added succesfully : "<Name>"
     
   
   
     Examples: 
-          | username              |   password    |   Name      | primaryEmail     | website           |      adressLine1           | adressLine2       | City       | State         | Zip           |   
-          |flavycoman@yahoo.com   | Moderat22     | Andre     | Gherkin@dot.to   | andrewgherkin.to  | New york NY 922282         |   tes23           |Nevada      |  New York     | 2313231        |                 
+          | username              |   password    |   Name      | primaryEmail     | website           |      adressLine1           | adressLine2       | City       | State         | Zip           |   Bay  |
+          |flavycoman@yahoo.com   | Moderat22     | Andrew     | Gherkin@dot.to   | andrewgherkin.to  | New york NY 922282         |   test123           |Nevada      |  New York     | 2313231        |     D   |         

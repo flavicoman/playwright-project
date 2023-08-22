@@ -60,11 +60,36 @@ Then('user navigates to general settings page', {timeout: 90000}, async function
     await pageFixture.page.locator("(//label[text()='City']/following::input)[2]").clear();     //clear old zip 
     await pageFixture.page.locator("(//label[text()='City']/following::input)[2]").type(string8); // add new zip  
 });
+
+
+
+
+
   Then('user clicks the {string} button', async function (string) {
     await new Promise(resolve => setTimeout(resolve, 3000));
     await pageFixture.page.locator("//div[@class='save-container']//button[1]").click();
     //await new Promise(resolve => setTimeout(resolve, 000));
   });
+ 
+ 
+ 
+ 
+ 
+  Then('user selects new bays : {string}', async function (string) {
+    await new Promise(resolve => setTimeout(resolve, 2000));
+    await pageFixture.page.locator("(//label[text()='Zip']/following::input)[1]").click();
+    await pageFixture.page.locator("(//label[text()='Zip']/following::input)[1]").clear();     //clear old zip 
+    await pageFixture.page.locator("(//label[text()='Zip']/following::input)[1]").type(string);
+   
+  });
+
+  Then('user defines legal conditions', async function () {
+    await new Promise(resolve => setTimeout(resolve, 3000));
+    await pageFixture.page.locator("(//input[@class='checkbox-input'])[1]").check();
+    expect(await pageFixture.page.locator("(//input[@class='checkbox-input'])[1]").isChecked()).toBeTruthy();
+ 
+  });
+  
 
   
   Then('settings should be added succesfully : {string}', async function (string) {
