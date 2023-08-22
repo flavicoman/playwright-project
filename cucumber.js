@@ -16,6 +16,9 @@ module.exports = {
         ],
         "requireModule": [
             "ts-node/register"
+        ],
+        "format": [
+            "html:cucumber-report.html"
         ]
         
     },

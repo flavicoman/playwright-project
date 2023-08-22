@@ -1,6 +1,8 @@
 import { Given, When, Then } from "@cucumber/cucumber";
 import { chromium, Page, Browser } from "@playwright/test";
 import { pageFixture } from "../setup/pageFixture";
+import { expect } from 'expect';
+
 
 
 let browser: Browser;
@@ -59,12 +61,19 @@ Then('user navigates to general settings page', {timeout: 90000}, async function
     await pageFixture.page.locator("(//label[text()='City']/following::input)[2]").type(string8); // add new zip  
 });
   Then('user clicks the {string} button', async function (string) {
-    
-    return 'pending';
+    await new Promise(resolve => setTimeout(resolve, 3000));
+    await pageFixture.page.locator("//div[@class='save-container']//button[1]").click();
+    //await new Promise(resolve => setTimeout(resolve, 000));
   });
 
   
-  Then('settings should be added succesfully', async function () {
-    // Write code here that turns the phrase above into concrete actions
-    return 'pending';
-  });
+  Then('settings should be added succesfully : {string}', async function (string) {
+    await new Promise(resolve => setTimeout(resolve, 3000));
+    const lastValue = await pageFixture.page.locator("(//div[contains(@class,'flex flex-col-reverse')]//input)[1]").inputValue();
+    if(lastValue === string)
+    { console.log("Settings have been saved succesfully")}
+     else {
+      console.log("Bro something is not ok");
+     }
+
+})
