@@ -21,12 +21,12 @@ Feature: User Authentication tests
 
 
 
-   #Scenario: Login should be failed
+   Scenario: Login should be failed
      Given User enter the username as "<username>"
      Given User enter the password as "<password>"
      When User click on the signIn button
      But Login should fail
 
    Examples: 
-     | username              |   password    |    
-     | flavycoman@yahoo.com |   Moderat223   | 
+    | username              |   password    |    
+    | flavycoman@yahoo.com |   Moderat223   | 
