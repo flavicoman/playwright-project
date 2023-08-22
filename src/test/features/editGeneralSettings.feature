@@ -16,5 +16,5 @@ Feature: Edit general settings
   
   
     Examples: 
-          | username              |   password    |   Name      | primaryEmail     | website           |      adressLine1           | adressLine2       | City       | State     | zip           |   
-          |flavycoman@yahoo.com   | Moderat22     | Andrew      | Gherkin@dot.to   | andrewgherkin.to  | New york NY 922282         |   tes23           |Nevada      |  York     |2313231        |                 
+          | username              |   password    |   Name      | primaryEmail     | website           |      adressLine1           | adressLine2       | City       | State         | Zip           |   
+          |flavycoman@yahoo.com   | Moderat22     | Andrew      | Gherkin@dot.to   | andrewgherkin.to  | New york NY 922282         |   tes23           |Nevada      |  New York     | 2313231        |                 
