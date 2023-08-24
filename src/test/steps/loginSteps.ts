@@ -18,9 +18,13 @@ let mypage : BrowserFunctions
   
   });
 
-  Given('User enter the password ', async function () {
+  Given('User enter the password', async function () {
+    console.log(users.pass);
     await mypage.enterPassword(users.pass);
+   
   });
+  
+ 
 
   When('User click on the signIn button', async function () {
     await mypage.signIn();

@@ -56,5 +56,4 @@ export class BrowserFunctions {
      
         await this.confirmButton.click();
     }
-
 }
