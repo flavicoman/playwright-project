@@ -3,7 +3,7 @@ import { pageFixture } from "../setup/pageFixture";
 import { BrowserFunctions } from "../pages/pageObjModel";
 import users from "../user-data/users.json"
 
-console.log(users.password.toUpperCase);
+
 
 let mypage : BrowserFunctions 
 
@@ -18,8 +18,8 @@ let mypage : BrowserFunctions
   
   });
 
-  Given('User enter the password', async function () {
-    await mypage.enterPassword(users.password);
+  Given('User enter the password as {string}', async function (password) {
+    await mypage.enterPassword(password);
   });
 
   When('User click on the signIn button', async function () {
