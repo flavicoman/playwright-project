@@ -4,6 +4,8 @@ let browser: Browser;
 let page: Page;
 
 
+
+
 async function getTextFromElements(page: Page): Promise<string[]> {
     await page.waitForSelector('.tee_time_range .tee_time_item');
     var elements = await page.$$('.tee_time_item');

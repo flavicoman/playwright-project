@@ -1,8 +1,13 @@
 import { Given, When, Then } from "@cucumber/cucumber";
 import { chromium, Page, Browser } from "@playwright/test";
 
+
 let browser: Browser;
 let page: Page;
+
+
+
+
 
 Given('the user clicks on the "Members" page button', async function () {
     // await page.locator('div:nth-child(2) > .circle-button').first().click();

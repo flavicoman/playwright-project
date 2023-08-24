@@ -6,7 +6,7 @@ module.exports = {
         },
         "paths": [
             "src/test/features/login.feature",
-            "src/test/features/editGeneralSettings.feature" 
+            "src/test/features/loginSteps.feature" 
            
         ],
         

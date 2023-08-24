@@ -8,10 +8,13 @@ let browser: Browser;
 let page: Page;
 let context: BrowserContext; 
 
+
+
 BeforeAll(async () => {
   browser = await chromium.launch({ headless: false });
   page = await browser.newPage();
   pageFixture.page = page;
+  
 });
 
 Before(async function(){
