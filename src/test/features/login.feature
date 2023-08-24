@@ -4,7 +4,7 @@ Feature: User Authentication tests
     Given User navigates to the application
 
    Scenario: Login should be success
-     And User enter the username as "<username>"
+     And User enter the username 
      And User enter the password as "<password>"
      When User click on the signIn button
      Then Login should be success

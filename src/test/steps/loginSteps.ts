@@ -1,17 +1,20 @@
 import { Given, When, Then } from "@cucumber/cucumber";
-import {Page, Browser} from "@playwright/test";
 import { pageFixture } from "../setup/pageFixture";
 import { BrowserFunctions } from "../pages/pageObjModel";
+import users from "../user-data/users.json"
+
+console.log(users.password.toUpperCase);
 
 let mypage : BrowserFunctions 
+
     
   Given('User navigates to the application', async function () {
     mypage = new BrowserFunctions(pageFixture.page);
     await mypage.goto();
    });
 
-  Given('User enter the username as {string}', async function (userName) {
-    await mypage.enterUsername(userName);
+  Given('User enter the username', async function () {
+    await mypage.enterUsername(users.username);
   
   });
 
@@ -23,7 +26,7 @@ let mypage : BrowserFunctions
     await mypage.signIn();
   });
 
-  Then('Login should be success', {timeout: 90000},  async function () {
+  Then('Login should be success', {timeout: 9000},  async function () {
     await mypage.logInSucces();
   });
   
@@ -31,14 +34,12 @@ let mypage : BrowserFunctions
     mypage.clickArrowBtn();
   });
   
-  Then('the User clicks on the logout button', async function () {
-    await pageFixture.page.locator( "#flex gap-3").click();
+  Then('the User clicks on the logout button', {timeout: 9000}, async function () {
+   mypage.logout();
   });
 
   Then('the User clicks on the logout confirm button', async function () {
-    await pageFixture.page.locator("#buttons-row").click();
-    //button[text()='Logout']
-    //div[@class='buttons-row']//button[1]
+   mypage.confirmLogout();
   });
 
   Then('the user should be logged out', async function () {
