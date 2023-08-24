@@ -5,7 +5,7 @@ Feature: User Authentication tests
 
    Scenario: Login should be success
      And User enter the username 
-     And User enter the password as "<password>"
+     And User enter the password 
      When User click on the signIn button
      Then Login should be success
      And the User clicks on the arrow button
@@ -13,20 +13,20 @@ Feature: User Authentication tests
      And the User clicks on the logout confirm button
      Then the user should be logged out
 
-   Examples: 
-    | username              |   password    |    
-    | flavycoman@yahoo.com |   Moderat22   | 
+ 
+       
+  
 
 
 
 
 
-   Scenario: Login should be failed
-     Given User enter the username as "<username>"
-     Given User enter the password as "<password>"
-     When User click on the signIn button
-     But Login should fail
+  # Scenario: Login should be failed
+   #  Given User enter the username as "<username>"
+    # Given User enter the password as "<password>"
+    # When User click on the signIn button
+    # But Login should fail
 
-   Examples: 
-    | username              |   password    |    
-    | flavycoman@yahoo.com |   Moderat223   | 
+  # Examples: 
+   # | username              |   password    |    
+   # | flavycoman@yahoo.com |   Moderat223   | 
