@@ -15,7 +15,7 @@ export  class Login {
     public get eleLginBtn() {
         return this.page.$("button[type='submit']")
     }
-
+   //methods used 
     public async enterUserName(name: string) {
         const ele = await this.eleEmailtextField;
         await ele?.fill(name);
