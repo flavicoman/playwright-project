@@ -5,38 +5,37 @@ import { browserFunctions } from "../pages/browserFunctions";
 import users from "../user-data/users.json"
 import { logInFunctions } from "../pages/logInFunctions";
 import { logOutFunction } from "../pages/logOutFunctions";
-import { Login } from "../pages/Login.page";
+import { LoginPage } from "../pages/Login.page";
 
 
 let mypage: browserFunctions
 let user: logInFunctions
 let userOut: logOutFunction
-let login : Login
+let login : LoginPage
 
 Given('User navigates to the application', async function () {
- 
   mypage = new browserFunctions(pageFixture.page);
   await mypage.goto();
 });
 
 Given('User enter the username', async function () {
   //await mypage.enterUsername(users.username);
-  login = new Login(pageFixture.page);
-  await login.enterUserName(users.username)
+  login = new LoginPage(pageFixture.page);
+  await login.enterUser(users.username)
 });
 
 Given('User enter the password', async function () {
 
-  await mypage.enterPassword(users.pass);
+  await login.enterPass(users.pass);
+ // await mypage.enterPassword(users.pass);
 
 });
 
-
-
 When('User click on the signIn button', async function () {
-  user = new logInFunctions(pageFixture.page);
-  await user.signIn();
-   setTimeout: 9000 ;
+ await  login.clickLoginBtn();
+  // user = new logInFunctions(pageFixture.page);
+  // await user.signIn();
+  //  setTimeout: 9000 ;
   //await mypage.signIn();
 });
 
