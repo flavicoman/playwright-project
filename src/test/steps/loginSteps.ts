@@ -1,15 +1,17 @@
 import { Given, When, Then } from "@cucumber/cucumber";
 import { pageFixture } from "../setup/pageFixture";
-import { BrowserFunctions } from "../pages/pageObjModel";
+import { browserFunctions } from "../pages/browserFunctions";
+//import { logInFunction, logOutFunction } from "../pages/browserFunctions";
 import users from "../user-data/users.json"
+import { logInFunctions } from "../pages/logInFunctions";
+import { logOutFunction } from "../pages/logOutFunctions";
 
-
-
-let mypage : BrowserFunctions 
-
+let mypage : browserFunctions 
+let user : logInFunctions
+let userOut : logOutFunction
     
   Given('User navigates to the application', async function () {
-    mypage = new BrowserFunctions(pageFixture.page);
+    mypage = new browserFunctions(pageFixture.page);
     await mypage.goto();
    });
 
@@ -19,7 +21,7 @@ let mypage : BrowserFunctions
   });
 
   Given('User enter the password', async function () {
-    console.log(users.pass);
+   
     await mypage.enterPassword(users.pass);
    
   });
@@ -27,23 +29,30 @@ let mypage : BrowserFunctions
  
 
   When('User click on the signIn button', async function () {
-    await mypage.signIn();
+    let user = new logInFunctions(pageFixture.page);
+    await user.signIn();
+    //await mypage.signIn();
   });
 
   Then('Login should be success', {timeout: 9000},  async function () {
-    await mypage.logInSucces();
+    await user.logInSucces;
+    //await mypage.logInSucces();
   });
   
   Then('the User clicks on the arrow button', async () => {
-    mypage.clickArrowBtn();
+    let userOut = new logOutFunction(pageFixture.page);
+   userOut.clickArrowBtn();
+    //mypage.clickArrowBtn();
   });
   
   Then('the User clicks on the logout button', {timeout: 9000}, async function () {
-   mypage.logout();
+    userOut.logout();
+   // mypage.logout();
   });
 
   Then('the User clicks on the logout confirm button', async function () {
-   mypage.confirmLogout();
+    userOut.confirmLogout();
+   // mypage.confirmLogout();
   });
 
   Then('the user should be logged out', async function () {

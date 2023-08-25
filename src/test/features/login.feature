@@ -7,7 +7,7 @@ Feature: User Authentication tests
      And User enter the username 
      And User enter the password 
      When User click on the signIn button
-     Then Login should be success
+    Then Login should be success
      And the User clicks on the arrow button
      And the User clicks on the logout button
      And the User clicks on the logout confirm button
