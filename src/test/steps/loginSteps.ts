@@ -42,17 +42,14 @@ Then('the User clicks on the arrow button', async () => {
 });
 
 Then('the User clicks on the logout button', { timeout: 9000 }, async function () {
-
   user.logOut();
-
 });
 
 Then('the User clicks on the logout confirm button', { timeout: 90000 }, async function () {
-user.confirmLogOut();
-
+  user.confirmLogOut();
 });
 
 Then('the user should be logged out', async function () {
-  
+
 });
 

@@ -9,6 +9,6 @@ Feature: User Authentication Test
      And User click on the signIn button
      Then Login should be success
      When the User clicks on the arrow button
-    # And the User clicks on the logout button
-     #And the User clicks on the logout confirm button
+     And the User clicks on the logout button
+     And the User clicks on the logout confirm button
      #Then the user should be logged out
