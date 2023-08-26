@@ -14,9 +14,4 @@ Feature: Edit general settings
     And user defines legal conditions 
     And user clicks the "save" button 
     Then settings should be added succesfully : "<Name>"
-    
   
-  
-    Examples: 
-          | username              |   password    |   Name      | primaryEmail     | website           |      adressLine1           | adressLine2       | City       | State         | Zip           |   Bay  |
-          |flavycoman@yahoo.com   | Moderat22     | Andrew     | Gherkin@dot.to   | andrewgherkin.to  | New york NY 922282         |   test123           |Nevada      |  New York     | 2313231        |     D   |         

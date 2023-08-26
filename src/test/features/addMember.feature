@@ -20,7 +20,7 @@ Scenario Outline: Add member with invalid names
   And admin adds invalid last name 
   Then save button should be unavailable 
 
-Scenario Outline: Add new member with invalid phone phoneNumber
+Scenario Outline: Add new member with invalid phone number 
   Given admin clicks on the "+" button 
   And admin adds firstName 
   And admin adds lastName 

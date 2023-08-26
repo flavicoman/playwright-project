@@ -2,20 +2,28 @@ Feature: Add new customer
 
   Background:
     Given User navigates to the application
+    And user goes to the customers section
 
-  Scenario Outline: Admin will add a new customer
-    And User enter the username as "<username>"
-    And User enter the password as "<password>"
-    When User click on the signIn button
-    Then Login should be success
-    And user navigates to customers page
-    And user selects customers section
-    And user clicks on the "+" button
-    And user inserts "<FirstName> <LastName> <Email> <Phone>"
-    When user clicks on the save button
-    Then new customer should be added
+  Scenario Outline: Verify that admin can add customer with invalid name
+    Given admin clicks on the "+" button 
+    And admin adds invalid firstName
+    And admin adds invalid lastName 
+    Then save button should be unavailable 
+
   
-    Examples: 
-          | username              |   password    |   firstName | lastName     |         email     |      phone       |    
-          |flavycoman@yahoo.com   | Moderat22     | Andrew      | Gherkin      | andrew@gherkin.to | 03992883839      | 
+  Scenario Outline: Verify that admin can add customer with invalid phone number
+    Given admin clicks on the "+" button 
+    And admin adds firstName
+    And admin adds lastName 
+    And admin adds invalid phoneNumber
+    Then save button should be unavailable 
 
+  Scenario Outline: Verify that admin can add customer with valid data
+   Given admin clicks on the “+” button
+   And admin adds valid FirstName
+   And admin adds valid LastName
+   And admin adds valid phoneNumber
+   And admin adds valid email
+   Then save button should be available
+   And admin clicks the save button
+  Then member should be added succesfully
