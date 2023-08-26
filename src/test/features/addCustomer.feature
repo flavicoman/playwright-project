@@ -2,6 +2,7 @@ Feature: Add new customer
 
   Background:
     Given User navigates to the application
+    And admin is logged in 
     And user goes to the customers section
 
   Scenario Outline: Verify that admin can add customer with invalid name

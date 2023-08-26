@@ -1,7 +1,8 @@
 Feature : Edit memebrships settings 
 
     Background : 
-      Given admin navigates to the application 
+      Given admin navigates to the application
+      And admin is logged in 
       And admin goes to the memberships panel 
  
      Scenario Outline: Verify that admin can edit maximum memberships allowed 

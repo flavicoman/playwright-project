@@ -1,4 +1,4 @@
-import { browserFunctions } from "./browserFunctions";
+import { browserFunctions } from "./BasePage.page";
 import { pageFixture } from "../setup/pageFixture";
 import { Locator, Page } from "@playwright/test";
 export class logInFunctions extends browserFunctions {

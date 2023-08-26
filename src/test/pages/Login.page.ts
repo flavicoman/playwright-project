@@ -8,7 +8,7 @@ export  class LoginPage {
     }
    //methods used 
     public async enterUser(email: string) {
-        console.log("email")
+        
         const ele = await this.page.locator("input[type='email']");
         await ele?.type(email);
     }

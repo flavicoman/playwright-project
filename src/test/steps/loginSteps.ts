@@ -1,20 +1,20 @@
 import { Given, When, Then } from "@cucumber/cucumber";
 import { pageFixture } from "../setup/pageFixture";
-import { browserFunctions } from "../pages/browserFunctions";
+import { BasePage } from "../pages/BasePage.page";
 
 import users from "../user-data/users.json"
-import { logInFunctions } from "../pages/logInFunctions";
-import { logOutFunction } from "../pages/logOutFunctions";
+//import { logInFunctions } from "../pages/logInFunctions";
+
 import { LoginPage } from "../pages/Login.page";
+import { HomePage } from "../pages/HomePage.page";
 
 
-let mypage: browserFunctions
-let user: logInFunctions
-let userOut: logOutFunction
+let mypage: BasePage
+let user: HomePage;
 let login: LoginPage
 
-Given('User navigates to the application', async function () {
-  mypage = new browserFunctions(pageFixture.page);
+Given('admin navigates to the application', async function () {
+  mypage = new BasePage(pageFixture.page);
   await mypage.goto();
 });
 
@@ -30,32 +30,29 @@ Given('User enter the password', async function () {
 
 When('User click on the signIn button', async function () {
   await login.clickLoginBtn();
-
 });
 
 Then('Login should be success', { timeout: 90000 }, async function () {
-  await user.loginSucces();
+  user = new HomePage(pageFixture.page);
+  await user.verifySignIn();
 });
 
 Then('the User clicks on the arrow button', async () => {
-  await new Promise(resolve => setTimeout(resolve, 2000));
-  userOut = new logOutFunction(pageFixture.page);
-  userOut.clickArrowBtn();
-  //mypage.clickArrowBtn();
+  user.clickArrowBtn();
 });
 
 Then('the User clicks on the logout button', { timeout: 9000 }, async function () {
 
-  userOut.logout();
+  user.logOut();
 
 });
 
 Then('the User clicks on the logout confirm button', { timeout: 90000 }, async function () {
-  userOut.confirmLogout();
+user.confirmLogOut();
 
 });
 
 Then('the user should be logged out', async function () {
-  console.log("userloggedout")
+  
 });
 

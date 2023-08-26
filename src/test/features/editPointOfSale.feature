@@ -1,8 +1,9 @@
 Feature : Edit point of sale settings 
 
     Background :  
-         Given user navigates to the application
-         And user navigates to the point of sale panel
+         Given admin navigates to the application
+         And admin is logged in 
+         And admin navigates to the point of sale panel
 
      Scenario Outline : Verify that admin can add new rate 
          Given admin clicks the “+” symbol
