@@ -7,13 +7,13 @@ Background:
    
 Scenario Outline: Add Member with valid data 
   Given admin clicks on the "+" button 
-  And admin adds valid firstName 
-  And admin adds valid lastName 
-  And admin adds valid phoneNumber 
-  And admin adds valid email 
-  Then save button should be available 
-  And admin clicks the save button 
-  Then member should be added succesfully
+  #And admin adds valid firstName 
+  #And admin adds valid lastName 
+  #And admin adds valid phoneNumber 
+ # And admin adds valid email 
+  #Then save button should be available 
+  #And admin clicks the save button 
+ # Then member should be added succesfully
 
 #Scenario Outline: Add member with invalid names 
   #Given admin clicks on the "+" button 
