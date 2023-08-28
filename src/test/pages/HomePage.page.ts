@@ -3,15 +3,16 @@ import { pageFixture } from "../setup/pageFixture";
 
 export class HomePage {
 
-    private page: Page; 
+    public page: Page; 
     constructor(page: Page) {
         this.page = page;
     }
 
     public async verifySignIn ()
      { 
-        await new Promise(resolve => setTimeout(resolve, 2000));
+        //await new Promise(resolve => setTimeout(resolve, 2000));
         await pageFixture.page.waitForSelector("div.header-container", { timeout: 10000 }); // Increase timeout to 10 seconds
+       // await new Promise(resolve => setTimeout(resolve, 2000));
         const elementText = await pageFixture.page.locator("p:has-text('Coman')").textContent();
         console.log(elementText); // Log the text content t
      }
@@ -34,11 +35,14 @@ export class HomePage {
      }
      
     public async goToMembersPage(){
-        const el = await this.page.locator("button.standard-button.");
+       // await this.page.waitForSelector(".small-format-item:last-child");
+       // await this.page.click(".small-format-item:last-child");
+        await new Promise(resolve => setTimeout(resolve, 3000));
+        const el = await this.page.locator("div.small-format-item>>nth=1")
         await el.click();
     }
     public async goToSettingsPage(){
-        const el = await this.page.locator("(//button[@type='button'])[3]");
+        const el = await this.page.locator("div.small-format-item>>nth=2");
         await el.click();
     }
 

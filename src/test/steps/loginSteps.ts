@@ -1,9 +1,9 @@
 import { Given, When, Then } from "@cucumber/cucumber";
 import { pageFixture } from "../setup/pageFixture";
-import { BasePage } from "../pages/BasePage.page";
+import { BasePage } from "../pages/basePage.page";
 import users from "../user-data/users.json"
-import { LoginPage } from "../pages/Login.page";
-import { HomePage } from "../pages/HomePage.page";
+import { LoginPage } from "../pages/login.page";
+import { HomePage } from "../pages/homePage.page";
 
 
 let mypage: BasePage
