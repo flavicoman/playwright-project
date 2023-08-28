@@ -1,9 +1,9 @@
 import { Given, When, Then } from "@cucumber/cucumber";
-import { LoginPage} from "../pages/login.page";
+import { LoginPage} from "../pages/Login.page";
 import { pageFixture } from "../setup/pageFixture";
 import users from "../user-data/users.json"
-import { HomePage } from "../pages/homePage.page";
-import { MembersPage } from "../pages/membersPage.page";
+import { HomePage } from "../pages/HomePage.page";
+import { MembersPage } from "../pages/MembersPage.page";
 
 
 let login : LoginPage; 
@@ -38,36 +38,36 @@ let admin : MembersPage;
 
   Given('admin adds valid lastName', async function () {
   
-    return 'pending';
+    admin.addLastName()
   });
 
   Given('admin adds valid phoneNumber', async function () {
   
-    return 'pending';
+    admin.addPhoneNumber()
   });
 
 
   Given('admin adds valid email', async function () {
   
-    return 'pending';
+    admin.addEmail()
   });
 
 
   Then('save button should be available', async function () {
   
-    return 'pending';
+    admin.checkSaveButtonAvailability();
   });
 
 
   Then('admin clicks the save button', async function () {
   
-    return 'pending';
+    admin.clickSaveButton();
   });
 
 
   Then('member should be added succesfully', async function () {
   
-    return 'pending';
+    admin.checkAddedMember();
   });
 
 

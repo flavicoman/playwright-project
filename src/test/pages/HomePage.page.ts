@@ -45,7 +45,12 @@ export class HomePage {
         const el = await this.page.locator("div.small-format-item>>nth=2");
         await el.click();
     }
+    public async checkSaveButtonAvailability(){
 
+    }
+    public async clickSaveButton(){
+        
+    }
 
 
 
