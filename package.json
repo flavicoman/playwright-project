@@ -19,7 +19,7 @@
     "typescript": "^5.1.6"
   },
   "dependencies": {
-    "@jest/globals": "^29.6.2"
+    "@jest/globals": "^29.6.2" 
   },
   "debug": "node - inspect-brk=5858./node_modules/cucumber/bine/cucumber-js test/features/**/ -t'@yourtag'"
 }

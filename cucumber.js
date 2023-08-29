@@ -10,7 +10,7 @@ module.exports = {
            
         ],
         
-        "dryRun": false,
+        "dryRun": true,
         "require": [
             "src/test/steps/*.ts",
             "src/test/setup/hooks.ts"

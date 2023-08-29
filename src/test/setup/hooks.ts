@@ -16,6 +16,7 @@ let context: BrowserContext;
 BeforeAll(async () => {
   browser = await chromium.launch({ headless: false });
  // page = await browser.newPage();
+
   pageFixture.page = page;
   
 });
@@ -39,4 +40,4 @@ Before(async function(){
 //   await browser.close();
 // });
 
-export { page }; // Export the initialized 'page' object for use in step definitions
+export { page }; //comm for commit 

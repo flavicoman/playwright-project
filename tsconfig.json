@@ -1,6 +1,6 @@
 {
     "compilerOptions": {
-      // ... other options
+      // ... other options // comm for commit
       "esModuleInterop": true,
       "resolveJsonModule": true
     }

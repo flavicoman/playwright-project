@@ -1,6 +1,6 @@
 import { Page } from "@playwright/test";
 import { Locator } from "@playwright/test";
-import { HomePage } from "./HomePage.page";
+import { HomePage } from "./homePage.page";
 import generateRandomName from "../utils/generateRandomName";
 import generateRandomPhoneNumber from "../utils/generateRandomPhoneNumber";
 
@@ -53,7 +53,7 @@ export class MembersPage extends HomePage {
 
     }
    public async checkAddedMember() { 
-    
+
    }
 
 }
