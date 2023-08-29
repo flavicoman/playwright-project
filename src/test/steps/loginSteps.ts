@@ -3,7 +3,7 @@ import { pageFixture } from "../setup/pageFixture";
 import { BasePage } from "../pages/basePage.page";
 import users from "../user-data/users.json"
 import { LoginPage } from "../pages/login.page";
-import { HomePage } from "../pages/homePage.page";
+import { HomePage } from "../pages/HomePage.page";
 
 
 let mypage: BasePage

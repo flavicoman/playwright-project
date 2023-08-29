@@ -2,7 +2,7 @@ import { Given, When, Then } from "@cucumber/cucumber";
 import { LoginPage} from "../pages/login.page";
 import { pageFixture } from "../setup/pageFixture";
 import users from "../user-data/users.json"
-import { HomePage } from "../pages/homePage.page";
+import { HomePage } from "../pages/HomePage.page";
 import { MembersPage } from "../pages/membersPage.page";
 
 
@@ -32,13 +32,15 @@ let admin : MembersPage;
 
   Given('admin adds valid firstName', async function () {
   
-    admin.addFirstName()
+    admin.addFirstName();
+    await new Promise(resolve => setTimeout(resolve, 5000));
   });
 
 
   Given('admin adds valid lastName', async function () {
   
-    admin.addLastName()
+    admin.addLastName();
+    await new Promise(resolve => setTimeout(resolve, 5000));
   });
 
   Given('admin adds valid phoneNumber', async function () {
@@ -50,6 +52,7 @@ let admin : MembersPage;
   Given('admin adds valid email', async function () {
   
     admin.addEmail()
+    await new Promise(resolve => setTimeout(resolve, 2000));
   });
 
 

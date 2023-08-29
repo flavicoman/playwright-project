@@ -8,5 +8,5 @@
     const areaCode = getRandomNumber(100, 999).toString(); 
     const firstPart = getRandomNumber(100, 999).toString(); 
     const secondPart = getRandomNumber(1000, 9999).toString(); 
-    return `(${areaCode}) ${firstPart}-${secondPart}`;
+    return `(${areaCode}) ${firstPart}${secondPart}`;
   }

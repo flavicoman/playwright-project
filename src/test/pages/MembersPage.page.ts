@@ -1,17 +1,19 @@
 import { Page } from "@playwright/test";
 import { Locator } from "@playwright/test";
-import { HomePage } from "./homePage.page";
+import { HomePage } from "./HomePage.page";
 import generateRandomName from "../utils/generateRandomName";
 import generateRandomPhoneNumber from "../utils/generateRandomPhoneNumber";
+import generateRandomEmail from "../utils/generateRandomEmail";
 
 
 
 
 export class MembersPage extends HomePage {
     private plus : Locator = this.page.locator("svg.svg-inline--fa.fa-plus.fa-xl ")
-    private firstNameInput : Locator = this.page.getByText("First Name")
-    private lastNameInput : Locator = this.page.getByText("Last Name")
-    private phoneNumberInput : Locator = this.page.locator("")
+    private firstNameInput : Locator = this.page.locator(".input-fields-container:nth-child(2) .input-container:nth-child(1) input")
+    private lastNameInput : Locator = this.page.locator(".input-fields-container:nth-child(2) .input-container:nth-child(2) input")
+    private phoneNumberInput : Locator = this.page.locator(".input-fields-container:nth-child(4) .input-container:nth-child(2) input")
+    private emailInput : Locator = this.page.locator(".input-fields-container:nth-child(4) .input-container:nth-child(1) input ");
     constructor(page:Page) {
         super(page);
     }
@@ -22,27 +24,21 @@ export class MembersPage extends HomePage {
 
     public async addFirstName ()
     {     
-        const name =  generateRandomName();
-        await this.page.getByText("(//span[text()='New Member']/following::input)[1]").click();
-        await this.page.getByLabel("(//span[text()='New Member']/following::input)[1]").fill("adc");
-        this.firstNameInput.click();
-        this.firstNameInput.fill(name);
+        await this.firstNameInput.fill(generateRandomName());
+        
     }
 
     public async addLastName(){
-       const lastName = generateRandomName();
-       this.lastNameInput.click();
-       this.lastNameInput.fill(lastName)
+       await this.lastNameInput.fill(generateRandomName())
     }
 
     public async addPhoneNumber(){
-         const number = generateRandomPhoneNumber();
          this.phoneNumberInput.click();
-         this.phoneNumberInput.fill(number);
+         this.phoneNumberInput.type(generateRandomPhoneNumber())
     }
 
     public async addEmail(){
-
+          this.emailInput.fill(generateRandomEmail());
     }
 
     public async addDate(){
