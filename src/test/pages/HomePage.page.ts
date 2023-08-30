@@ -12,9 +12,9 @@ export class HomePage {
      { 
         //await new Promise(resolve => setTimeout(resolve, 2000));
         await pageFixture.page.waitForSelector("div.header-container", { timeout: 10000 }); // Increase timeout to 10 seconds
-        await new Promise(resolve => setTimeout(resolve, 2000));
+       await new Promise(resolve => setTimeout(resolve, 2000));
         const elementText = await pageFixture.page.locator("p:has-text('Coman')").textContent();
-       
+        console.log(elementText); // Log the text content t
      }
 
      public async clickArrowBtn () {
@@ -45,14 +45,11 @@ export class HomePage {
         const el = await this.page.locator("div.small-format-item>>nth=2");
         await el.click();
     }
-    public async checkSaveButtonAvailability(){
-
-    }
-    public async clickSaveButton(){
-        
-    }
-
-
+   
+   //  public async checkSaveButtonAvailability(){
+   //    await  this.saveButton.click();
+   // }
+    
 
 
 }

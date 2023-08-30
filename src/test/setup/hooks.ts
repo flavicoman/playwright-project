@@ -3,7 +3,7 @@ import { setDefaultTimeout } from "@cucumber/cucumber";
 import { BeforeAll, AfterAll, After , Before} from "@cucumber/cucumber";
 import { pageFixture }  from "./pageFixture";
 
-const DEFAULT_TIMEOUT = 15000;
+const DEFAULT_TIMEOUT = 20000;
 setDefaultTimeout(DEFAULT_TIMEOUT);
 
 
