@@ -1,5 +1,6 @@
 import { Page } from "@playwright/test";
 import { pageFixture } from "../setup/pageFixture";
+import { Locator } from "@playwright/test";
 
 export class HomePage {
 
@@ -35,21 +36,22 @@ export class HomePage {
      }
      
     public async goToMembersPage(){
-       // await this.page.waitForSelector(".small-format-item:last-child");
-       // await this.page.click(".small-format-item:last-child");
         await new Promise(resolve => setTimeout(resolve, 3000));
-        const el = await this.page.locator("div.small-format-item>>nth=1")
-        await el.click();
+        //const el = await this.page.locator("div.small-format-item>>nth=1")
+        await this.page.locator("div.small-format-item>>nth=1").click();
     }
+
+    
     public async goToSettingsPage(){
         const el = await this.page.locator("div.small-format-item>>nth=2");
         await el.click();
     }
    
-   //  public async checkSaveButtonAvailability(){
-   //    await  this.saveButton.click();
-   // }
-    
-
+    public async goToDesiredPage(desiredPage : Locator){
+      await new Promise(resolve => setTimeout(resolve, 3000));
+      //const el = await this.page.locator("div.small-format-item>>nth=1")
+      await this.page.locator(desiredPage.toString()).click();
+  }
+   
 
 }

@@ -2,7 +2,6 @@ import { Given, When, Then } from "@cucumber/cucumber";
 import { LoginPage } from "../pages/login.page";
 import { pageFixture } from "../setup/pageFixture";
 import users from "../user-data/users.json"
-import { HomePage } from "../pages/HomePage.page";
 import { MembersPage } from "../pages/membersPage.page";
 
 
@@ -21,6 +20,7 @@ Given('admin is logged in', async function () {
 });
 
 Given('admin navigates to the members panel', async function () {
+  //admin.goToDesiredPage(this.page.locator("div.small-format-item>>nth=1"));
   admin.goToMembersPage();
 });
 
@@ -46,6 +46,7 @@ Given('admin adds valid lastName', async function () {
 Given('admin adds valid phoneNumber', async function () {
 
   admin.addPhoneNumber()
+  //admin.selectMembership();
 });
 
 

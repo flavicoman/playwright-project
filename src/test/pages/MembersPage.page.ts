@@ -10,12 +10,13 @@ import { expect } from "@playwright/test";
 
 export class MembersPage extends HomePage {
     private plus : Locator = this.page.locator("svg[data-icon=plus]")
-    private firstNameInput : Locator = this.page.locator(".input-fields-container:nth-child(2) .input-container:nth-child(1) input")
-    private lastNameInput : Locator = this.page.locator(".input-fields-container:nth-child(2) .input-container:nth-child(2) input")
-    private phoneNumberInput : Locator = this.page.locator(".input-fields-container:nth-child(4) .input-container:nth-child(2) input")
-    private emailInput : Locator = this.page.locator(".input-fields-container:nth-child(4) .input-container:nth-child(1) input ");
+    public firstNameInput : Locator = this.page.locator(".input-fields-container:nth-child(2) .input-container:nth-child(1) input")
+    public lastNameInput : Locator = this.page.locator(".input-fields-container:nth-child(2) .input-container:nth-child(2) input")
+    public phoneNumberInput : Locator = this.page.locator(".input-fields-container:nth-child(4) .input-container:nth-child(2) input")
+    public emailInput : Locator = this.page.locator(".input-fields-container:nth-child(4) .input-container:nth-child(1) input ");
     private saveButton : Locator = this.page.locator('button', { hasText: 'Save' })
-    
+    private membershipSelector : Locator = this.page.locator("div.dropdown-arrow.css-1xc3v61-indicatorContainer")
+   
     constructor(page:Page) {
         super(page);
         
@@ -53,18 +54,23 @@ export class MembersPage extends HomePage {
 
    }
     public async addDate(){
-
+       
     }
 
     public async selectMembership(){
-
+        this.membershipSelector.click()
     }
 
    public async checkAddedMember() { 
-      // const elLocator = this.page.locator('td', { hasText:'' })
+      
        const element = await this.page.waitForSelector(`text=${this.name}`);
-       expect(element).not.toBeNull(); // Assert that the element is found
+       expect(element).not.toBeNull(); 
 
    }
 
+    public async goToCustomerPage(){
+       
+     await this.page.getByRole('button', { name: 'Customers' }).click()
+     
+    }
 }
