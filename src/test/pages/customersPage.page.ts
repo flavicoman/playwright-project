@@ -38,7 +38,20 @@ export class CustomerPage extends MembersPage {
     }
 
    public async checkAddedCustomer() { 
-   //await  expect(this.page.waitForSelector(`text=${this.name}`)).not.toBeNull(); 
+   await  expect(this.page.waitForSelector(`text=${this.name}`)).not.toBeNull(); 
    }
+ 
+
+
+
+   public async selectCustomer(customer:string) {
+     
+      await this.page.getByText('aanh aanh').click();
+
+   
+   }
+  
 }
+
+
 

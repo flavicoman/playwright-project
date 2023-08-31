@@ -34,10 +34,10 @@ Before(async function(){
 //   await context.close();
 // })
 
-// AfterAll(async () => {
+//  AfterAll(async () => {
   
-//   await pageFixture.page.close();
-//   await browser.close();
+//    await pageFixture.page.close();
+//    await browser.close();
 // });
 
 export { page }; //comm for commit 

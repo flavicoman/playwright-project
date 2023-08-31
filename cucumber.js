@@ -5,7 +5,7 @@ module.exports = {
             "snippetInterface": "async-await"
         },
         "paths": [
-            "src/test/features/addCustomer.feature",
+            "src/test/features/editMembershipsData.feature",
             
            
         ],

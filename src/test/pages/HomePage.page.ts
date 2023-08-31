@@ -13,7 +13,7 @@ export class HomePage {
      { 
         //await new Promise(resolve => setTimeout(resolve, 2000));
         await pageFixture.page.waitForSelector("div.header-container", { timeout: 10000 }); // Increase timeout to 10 seconds
-       await new Promise(resolve => setTimeout(resolve, 2000));
+        await new Promise(resolve => setTimeout(resolve, 2000));
         const elementText = await pageFixture.page.locator("p:has-text('Coman')").textContent();
         console.log(elementText); // Log the text content t
      }

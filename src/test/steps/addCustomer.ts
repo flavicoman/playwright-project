@@ -1,5 +1,4 @@
 import { Given, When, Then } from "@cucumber/cucumber";
-import { chromium, Page, Browser } from "@playwright/test";
 
 import { CustomerPage } from "../pages/customersPage.page";
 import { pageFixture } from "../setup/pageFixture";
