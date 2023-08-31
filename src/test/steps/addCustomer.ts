@@ -39,21 +39,26 @@ let admin : CustomerPage;
    
   });
 
-  Given('admin adds valid FirstName', async function () {
-    await new Promise(resolve => setTimeout(resolve, 3000));
-    admin.addFirstName();
+   Given('admin adds valid customer firstName', async function () {
+     await new Promise(resolve => setTimeout(resolve, 3000));
+     admin.addFirstName();
    
-  });
+   });
 
-  Given('admin adds valid LastName', async function () {
-    await new Promise(resolve => setTimeout(resolve, 3000));
-    admin.addLastName();
-  });
+   Given('admin adds valid customer lastName', async function () {
+     await new Promise(resolve => setTimeout(resolve, 3000));
+     admin.addLastName();
+   });
 
   Given('customer should be added succesfully', async function () {
     await new Promise(resolve => setTimeout(resolve, 5000));
     admin.checkAddedCustomer()
   });
+
+  Given('admin adds invalid phoneNumber', async function () {
+    await new Promise(resolve => setTimeout(resolve, 3000));
+    admin.addInvalidPhoneNumber();
+  })
 
 
 
