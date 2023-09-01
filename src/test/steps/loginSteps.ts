@@ -26,7 +26,7 @@ Given('User enter the password', async function () {
 });
 
 When('User click on the signIn button', async function () {
-  // await this.page.locator("button[type='submit']", { setTimeout: 5000 }).click()
+
   await login.clickLoginBtn();
 });
 

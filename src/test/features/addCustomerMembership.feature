@@ -12,9 +12,9 @@ Feature: Add new membership to a customer
     #And admin navigates on the membership tab 
     #And admin clicks “Add a Membership” button 
     #Then new window should pop up with membership plan details
-    #Given admin selects membershipType memebership plan 
+    #When admin selects membershipType memebership plan 
     #Then save button should be available
-    #Given admin selects startDate date 
+    #When admin selects startDate date 
     #And admin clicks the save button 
     #Then user membership should be added succesfully 
     #And customer should be moved in the Members section

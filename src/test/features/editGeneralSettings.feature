@@ -26,7 +26,7 @@ Feature: Edit general settings
       #Then general settings data should be updated 
 
    # Scenario Outline: Verify that admin can edit general settings with invalid email 
-     # Given admin is on the general settings page 
+     # When admin is on the general settings page 
      # When admin adds new Name
      # And admin adds new invalid primaryEmail 
      # Then email box  should invalidate incorrect email 

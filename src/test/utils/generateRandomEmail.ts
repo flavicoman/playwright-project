@@ -4,7 +4,7 @@
     const emailDomain = ['gmail.com', 'yahoo.com', 'outlook.com', 'example.com', 'testmail.com'];
     const randomDomain = emailDomain[Math.floor(Math.random() * emailDomain.length)];
   
-    const usernameLength = Math.floor(Math.random() * 10) + 5; // Random length between 5 and 14 characters
+    const usernameLength = Math.floor(Math.random() * 10) + 5; 
     let username = '';
     const characters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
   

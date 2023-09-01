@@ -27,5 +27,5 @@ Feature: Add new customer
    And admin adds valid customer email
    And admin adds valid customer phoneNumber
    Then save button should be available
-   And admin clicks the save button
+   When admin clicks the save button
    Then customer should be added succesfully

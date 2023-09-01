@@ -28,7 +28,7 @@ export class MembersPage extends HomePage {
 
     public async addFirstName ()
     {    
-         // const name = generateRandomName();
+      
         await this.firstNameInput.fill(this.name);
         
     }
@@ -49,7 +49,7 @@ export class MembersPage extends HomePage {
     
    public async clickSaveButton(){
       await  this.saveButton.click();
-      //await this.page.locator('button', { hasText: 'Save' }).click();
+    
       await new Promise(resolve => setTimeout(resolve, 4000));
 
    }
