@@ -58,13 +58,22 @@ Given('admin selects subscriptionPlan', async function () {
     admin.selectSubscriptionPlan()
 });
 Given('click on the save button', async function () {
-   admin.clickSavebutton()
-   await new Promise(resolve => setTimeout(resolve, 4000));
+    admin.clickSavebutton()
+    await new Promise(resolve => setTimeout(resolve, 4000));
 });
-
-
-
 
 Then('New membership plan should be added', async function () {
     admin.checkAddedMembershipPlan()
+});
+
+Given('admin selects the edit option of the desired planName', async function () {
+
+    await new Promise(resolve => setTimeout(resolve, 4000));
+    admin.selectEditOption()
+
+});
+
+Then('membership plan should be edited succesfully', async function () {
+    admin.checkAddedMembershipPlan()
+
 });

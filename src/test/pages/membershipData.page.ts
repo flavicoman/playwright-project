@@ -15,6 +15,8 @@ export class membData extends HomePage {
     private durationMonthsInput: Locator = this.page.locator(".expirations-container > div:nth-child(2) .input")
     private dropdownSubPlan: Locator = this.page.locator(".select.mb-20 .dropdown-arrow")
     private subscriptionPlanInput: Locator = this.page.locator(".new-plan-modal-container > div:nth-child(7) input")
+    private cursorPointer : Locator = this.page.locator(".table-row.undefined:nth-child(1) .cursor-pointer")
+    private editOption : Locator = this.page.locator(".dropdown-menu .dropdown-menu-item:nth-of-type(1)")
     private saveButton : Locator = this.page.locator(".new-plan-modal-container .standard-button")
     constructor(page: Page) {
         super(page);
@@ -88,7 +90,12 @@ export class membData extends HomePage {
     public async clickSavebutton() {
       await this.saveButton.click()
     }
-
+    
+    public async selectEditOption () { 
+        this.cursorPointer.click()
+        await new Promise(resolve => setTimeout(resolve, 2000));
+        this.editOption.click();
+    }
 
 
 
