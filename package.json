@@ -12,6 +12,7 @@
   "devDependencies": {
     "@cucumber/cucumber": "^9.4.0",
     "@playwright/test": "^1.37.0",
+    "@testing-library/jest-dom": "^6.1.2",
     "@types/jest": "^29.5.3",
     "expect": "^29.6.3",
     "jest": "^29.6.3",
@@ -19,7 +20,7 @@
     "typescript": "^5.1.6"
   },
   "dependencies": {
-    "@jest/globals": "^29.6.2" 
+    "@jest/globals": "^29.6.2"
   },
   "debug": "node - inspect-brk=5858./node_modules/cucumber/bine/cucumber-js test/features/**/ -t'@yourtag'"
 }

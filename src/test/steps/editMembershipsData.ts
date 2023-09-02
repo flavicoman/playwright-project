@@ -5,8 +5,6 @@ import { membData } from "../pages/membershipData.page";
 
 let admin: membData
 
-
-
 Given('admin goes to the memberships panel', async function () {
     admin = new membData(pageFixture.page)
     await new Promise(resolve => setTimeout(resolve, 3000));
@@ -77,3 +75,24 @@ Then('membership plan should be edited succesfully', async function () {
     admin.checkAddedMembershipPlan()
 
 });
+
+When('admin selects the three dots option of the desired planName', async function () {
+     admin.selectDotsSymbol()
+   
+  });
+  When('admin clicks the delete option of the desire planName', async function () {
+   admin.selectDeleteOption()
+   
+  });
+  When('“Delete membership plan“ pop-up window appears',  async function () {
+    await new Promise(resolve => setTimeout(resolve, 4000));
+   admin.checkDeleteMPopUp()
+  });
+  Then('admin clicks on the “Continue” button', async function () {
+   admin.clickContinue()
+   
+  });
+  Then('plan should be deleted succesfully', async function () {
+    admin.checkDeletedMembership()
+   
+  });

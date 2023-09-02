@@ -5,7 +5,7 @@ Background:
     Given admin is logged in
     And admin navigates to the members panel 
    
- Scenario Outline: Add Member with valid data 
+ Scenario Outline: Verifiy that admin can add member with valid data 
     Given admin clicks on the "+" button 
     And admin adds valid firstName 
     And admin adds valid lastName 
