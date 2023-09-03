@@ -9,14 +9,12 @@ Given('admin navigates to the point of sale panel', async function () {
     admin = new PointSales (pageFixture.page);
     await new Promise(resolve => setTimeout(resolve, 3000));
     admin.goToPointOfSale()
-    
   });
 
   Given('admin adds newRateName', async function () {
     await new Promise(resolve => setTimeout(resolve, 3000));
     admin.addNewRateName()
   });
-
 
   Given('admin adds new fee', async function () {
     await new Promise(resolve => setTimeout(resolve, 3000));
@@ -26,18 +24,14 @@ Given('admin navigates to the point of sale panel', async function () {
   Given('admin adds category', async function () {
     await new Promise(resolve => setTimeout(resolve, 3000));
      admin.addCategory()
-    
   });
 
   Given('admin adds glCode', async function () {
     await new Promise(resolve => setTimeout(resolve, 3000));
     admin.addGLCode();
-    
   });
 
   Then('new rate should be added succesfully', async function () {
     await new Promise(resolve => setTimeout(resolve, 20000));
     await admin.checkAddedrate()
-
-
   });

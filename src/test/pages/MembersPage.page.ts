@@ -28,9 +28,7 @@ export class MembersPage extends HomePage {
 
     public async addFirstName ()
     {    
-      
         await this.firstNameInput.fill(this.name);
-        
     }
 
     public async addLastName(){

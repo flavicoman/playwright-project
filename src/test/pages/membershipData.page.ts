@@ -15,13 +15,13 @@ export class membData extends HomePage {
     private durationMonthsInput: Locator = this.page.locator(".expirations-container > div:nth-child(2) .input")
     private dropdownSubPlan: Locator = this.page.locator(".select.mb-20 .dropdown-arrow")
     private subscriptionPlanInput: Locator = this.page.locator(".new-plan-modal-container > div:nth-child(7) input")
-    private cursorPointer : Locator = this.page.locator(".table-row.undefined:nth-child(1) .cursor-pointer")
-    private editOption : Locator = this.page.locator(".dropdown-menu .dropdown-menu-item:nth-of-type(1)")
-    private saveButton : Locator = this.page.locator(".new-plan-modal-container .standard-button")
-    private deleteButton : Locator = this.page.locator(".dropdown-menu-item.undefined.danger")
-    private deletePopUp  = this.page.locator(".text-displayTwo.text-UIColors-darkAlert")
-    private continueButton : Locator = this.page.locator(".standard-button.outlined-dialog.regular")
-   
+    private cursorPointer: Locator = this.page.locator(".table-row.undefined:nth-child(1) .cursor-pointer")
+    private editOption: Locator = this.page.locator(".dropdown-menu .dropdown-menu-item:nth-of-type(1)")
+    private saveButton: Locator = this.page.locator(".new-plan-modal-container .standard-button")
+    private deleteButton: Locator = this.page.locator(".dropdown-menu-item.undefined.danger")
+    private deletePopUp = this.page.locator(".text-displayTwo.text-UIColors-darkAlert")
+    private continueButton: Locator = this.page.locator(".standard-button.outlined-dialog.regular")
+
     constructor(page: Page) {
         super(page);
 
@@ -32,8 +32,6 @@ export class membData extends HomePage {
         await this.page.locator("div.small-format-item>>nth=2").click();
         await new Promise(resolve => setTimeout(resolve, 1000));
         await this.page.locator(".settings-menu-item:nth-child(4)").click();
-
-
     }
     public async selectMMAInputBox() {
         await this.page.getByText('Maximum Memberships Allowed').click();
@@ -67,7 +65,6 @@ export class membData extends HomePage {
         await this.expireHoursCheckbox.check()
         await new Promise(resolve => setTimeout(resolve, 1000));
         await this.maxHoursOfPlayInput.type(this.value)
-
     }
 
     public async addMonthsDuration() {
@@ -75,52 +72,48 @@ export class membData extends HomePage {
         await new Promise(resolve => setTimeout(resolve, 4000));
         await this.durationMonthsInput.clear();
         await this.durationMonthsInput.type(this.value);
-
     }
 
     public async selectSubscriptionPlan() {
         await this.dropdownSubPlan.click()
         await this.subscriptionPlanInput.type("Gold weekly");
         await this.page.keyboard.press('Enter');
-
     }
 
     public async checkAddedMembershipPlan() {
         const tbodyText: string = await this.page.locator('tbody').textContent();
         await expect(tbodyText).toContain(this.name);
-
     }
 
     public async clickSavebutton() {
-      await this.saveButton.click()
+        await this.saveButton.click()
     }
-    
-    public async selectEditOption () { 
-       await  this.cursorPointer.click()
+
+    public async selectEditOption() {
+        await this.cursorPointer.click()
         await new Promise(resolve => setTimeout(resolve, 2000));
         await this.editOption.click();
     }
-    
-    public async selectDotsSymbol(){
-        await  this.cursorPointer.click()
+
+    public async selectDotsSymbol() {
+        await this.cursorPointer.click()
         await new Promise(resolve => setTimeout(resolve, 2000));
     }
 
     public async selectDeleteOption() {
-        await this.deleteButton.click({timeout: 3000});
+        await this.deleteButton.click({ timeout: 3000 });
     }
 
-    public async checkDeleteMPopUp () {
-        
-       // await expect(this.deletePopUp).toBeVisible()
+    public async checkDeleteMPopUp() {
+        // await expect(this.deletePopUp).toBeVisible()
     }
 
 
-    public async clickContinue() { 
+    public async clickContinue() {
         await this.continueButton.click()
     }
 
-    public async checkDeletedMembership() { 
-        
+    public async checkDeletedMembership() {
+
     }
 }

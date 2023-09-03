@@ -16,7 +16,6 @@ let admin : CustomerPage;
   Given('admin adds invalid customer firstName & lastName', async function () {
     admin.addInvalidName();
     await new Promise(resolve => setTimeout(resolve, 3000));
-    
   });
  
   Given('admin adds valid customer email', async function () {
@@ -30,7 +29,6 @@ let admin : CustomerPage;
     admin.addPhoneNumber();
   
   });
-
 
   Then('save button should be unavailable', async function () {
     await new Promise(resolve => setTimeout(resolve, 2000));

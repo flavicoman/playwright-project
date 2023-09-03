@@ -20,7 +20,6 @@ export class PointSales extends HomePage {
 
     }
 
-
     public async goToPointOfSale() {
         await this.page.locator("div.small-format-item>>nth=2").click();
         await new Promise(resolve => setTimeout(resolve, 1000));
@@ -38,7 +37,7 @@ export class PointSales extends HomePage {
     }
 
     public async addCategory() {
-         await this.categoryInput.fill("cat123")
+        await this.categoryInput.fill("cat123")
     }
 
     public async addGLCode() {

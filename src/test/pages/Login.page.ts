@@ -9,7 +9,6 @@ export class LoginPage {
 
     }
 
-
     public async enterUser(email: string) {
 
         const ele = await this.page.locator("input[type='email']");

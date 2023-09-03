@@ -12,8 +12,7 @@ export class SettingsPage extends HomePage {
     public async checkSettingsPage(){
         await pageFixture.page.waitForSelector("div.settings-menu", { timeout: 10000 }); 
         await new Promise(resolve => setTimeout(resolve, 2000));
-        const elementText = await pageFixture.page.locator("p:has-text('General Settings')").textContent();
-        
+        const elementText = await pageFixture.page.locator("p:has-text('General Settings')").textContent();    
     }
 }
 

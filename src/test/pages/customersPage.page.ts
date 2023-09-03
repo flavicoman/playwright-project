@@ -19,10 +19,10 @@ export class CustomerPage extends MembersPage {
     membershipSpan: Locator = this.page.locator(".details-option:nth-child(2)")
     addMembershipButton: Locator = this.page.locator(".large.mb-5")
     membershipPlanInput: Locator = this.page.locator(".text-displayFive:nth-child(1) input")
-    currentMembershipLocator : Locator = this.page.locator(".current-membership-name")
-    membersTab : Locator = this.page.locator(".members-page button:nth-child(1)")
+    currentMembershipLocator: Locator = this.page.locator(".current-membership-name")
+    membersTab: Locator = this.page.locator(".members-page button:nth-child(1)")
 
-    membershipPlanName : string = "Advanced"
+    membershipPlanName: string = "Advanced"
     customerName = "aanh aanh"
     public async addInvalidName() {
         await this.firstNameInput.fill("   ");
@@ -48,10 +48,7 @@ export class CustomerPage extends MembersPage {
     }
 
     public async selectCustomer(customer: string) {
-
         await this.page.getByText(this.customerName).click();
-
-
     }
 
     public async checkCustomerDetailWindow() {
@@ -71,19 +68,17 @@ export class CustomerPage extends MembersPage {
         this.page.keyboard.press('Enter');
     }
 
-    public async assertAddedMembership() { 
+    public async assertAddedMembership() {
         await expect(this.currentMembershipLocator).toContainText(this.membershipPlanName);
         await this.page.locator(".fa-xmark").click()
     }
-     
-    public async checkAddedMembership() { 
+
+    public async checkAddedMembership() {
         //await expect(this.membersTab).toBeVisible();
         await this.membersTab.click();
         await new Promise(resolve => setTimeout(resolve, 25000));
         await expect(this.page.waitForSelector(`text=${this.customerName}`)).not.toBeNull();
         await new Promise(resolve => setTimeout(resolve, 5000));
-
-       
     }
 
 

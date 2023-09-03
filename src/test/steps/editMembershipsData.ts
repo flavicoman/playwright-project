@@ -31,7 +31,6 @@ Given('admin selects the “+” symbol', async function () {
 Given('admin adds new Name', async function () {
     admin.addNewName()
     await new Promise(resolve => setTimeout(resolve, 2000));
-
 });
 
 Given('admin adds new  bookingGroup', async function () {
@@ -65,34 +64,31 @@ Then('New membership plan should be added', async function () {
 });
 
 Given('admin selects the edit option of the desired planName', async function () {
-
     await new Promise(resolve => setTimeout(resolve, 4000));
     admin.selectEditOption()
-
 });
 
 Then('membership plan should be edited succesfully', async function () {
     admin.checkAddedMembershipPlan()
-
 });
 
 When('admin selects the three dots option of the desired planName', async function () {
-     admin.selectDotsSymbol()
-   
-  });
-  When('admin clicks the delete option of the desire planName', async function () {
-   admin.selectDeleteOption()
-   
-  });
-  When('“Delete membership plan“ pop-up window appears',  async function () {
+    admin.selectDotsSymbol()
+});
+
+When('admin clicks the delete option of the desire planName', async function () {
+    admin.selectDeleteOption()
+});
+
+When('“Delete membership plan“ pop-up window appears', async function () {
     await new Promise(resolve => setTimeout(resolve, 4000));
-   admin.checkDeleteMPopUp()
-  });
-  Then('admin clicks on the “Continue” button', async function () {
-   admin.clickContinue()
-   
-  });
-  Then('plan should be deleted succesfully', async function () {
+    admin.checkDeleteMPopUp()
+});
+
+Then('admin clicks on the “Continue” button', async function () {
+    admin.clickContinue()
+});
+
+Then('plan should be deleted succesfully', async function () {
     admin.checkDeletedMembership()
-   
-  });
+});
