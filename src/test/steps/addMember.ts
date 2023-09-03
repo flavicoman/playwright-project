@@ -56,6 +56,7 @@ Then("click on '{}' button", async function (buttonName: string) {
 
 Given('admin clicks the save button', async function () {
   admin.clickSaveButton();
+  await new Promise(resolve => setTimeout(resolve, 2000));
 
 });
 

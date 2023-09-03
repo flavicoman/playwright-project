@@ -32,6 +32,35 @@ Given('admin navigates to the point of sale panel', async function () {
   });
 
   Then('new rate should be added succesfully', async function () {
-    await new Promise(resolve => setTimeout(resolve, 20000));
+    await new Promise(resolve => setTimeout(resolve, 2000));
     await admin.checkAddedrate()
   });
+
+
+  Given('admin clicks on the dots symbol on the right side of the desired rate name', async function () {
+    await new Promise(resolve => setTimeout(resolve, 4000));
+    admin.selectThreeDots()
+    });
+
+    Given('admin selects the edit option', async function () {
+      await new Promise(resolve => setTimeout(resolve, 2000));
+      admin.selectEditOption()
+      
+    });
+
+    Given('admin adds new category', async function () {
+      await new Promise(resolve => setTimeout(resolve, 2000));
+      admin.addCategory()
+      
+    });
+    Given('admin adds new glCode', async function () {
+      await new Promise(resolve => setTimeout(resolve, 2000));
+      admin.addGLCode()
+      
+    });
+    
+    Then('rate edit should be saved succesfully', async function () {
+      await new Promise(resolve => setTimeout(resolve, 2000));
+      admin.checkEditedRate()
+      
+    });
