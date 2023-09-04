@@ -1,5 +1,4 @@
 import { Given, When, Then } from "@cucumber/cucumber";
-import { Locator, Page } from "@playwright/test";
 import { pageFixture } from "../setup/pageFixture";
 import { PointSales } from "../pages/pointOfSale.page";
 
@@ -63,4 +62,44 @@ Given('admin navigates to the point of sale panel', async function () {
       await new Promise(resolve => setTimeout(resolve, 2000));
       admin.checkEditedRate()
       
+    });
+
+    Given('admin selects the delete option', async function () {
+     admin.selectDeleteOption();
+      
+    });
+
+    Then('“Delete rate” window should pop-up', async function () {
+      admin.checkDeleteOptWindow()
+      
+    });
+
+    Then('admin clicks the “continue” button', async function () {
+      admin.clickContinue()
+      
+    });
+    Then('rate should be deleted succesfully', async function () {
+      
+      
+    });
+
+    Given('user checks the box from “require payment at time of booking” step', async function () {
+      await new Promise(resolve => setTimeout(resolve, 6000));
+      admin.requirePayment()
+      
+    });
+
+    Then('“enable payment” window should pop up', async function () {
+      await new Promise(resolve => setTimeout(resolve, 2000));
+      await admin.checkRPBox()
+    });
+
+    Then('admin clicks on “continue” button', async function () {
+      await new Promise(resolve => setTimeout(resolve, 2000));
+      admin.clickContinue()
+    });
+
+    Then('payment at time of booking should be enabled', async function () {
+      await new Promise(resolve => setTimeout(resolve, 6000));
+      admin.verifyEnabledCheckbox()
     });
