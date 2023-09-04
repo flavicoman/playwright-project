@@ -1,22 +1,33 @@
 Feature: Edit general settings
-
-  Background:
-    Given User navigates to the application
-
-  Scenario Outline: Admin will edit general settings
-    And User enter the username as "<username>"
-    And User enter the password as "<password>"
-    When User click on the signIn button
-    Then Login should be success
-    And user navigates to general settings page 
-    And user adds new settings : "<Name>" "<primaryEmail>" "<website>" "<adressLine1>" "<adressLine2>" "<City>" "<State>" "<Zip>" 
-    And user selects new bays : "<Bay>"
-    And user defines legal conditions 
-    And user clicks the "save" button 
-    Then settings should be added succesfully : "<Name>"
-    
   
-  
-    Examples: 
-          | username              |   password    |   Name      | primaryEmail     | website           |      adressLine1           | adressLine2       | City       | State         | Zip           |   Bay  |
-          |flavycoman@yahoo.com   | Moderat22     | Andrew     | Gherkin@dot.to   | andrewgherkin.to  | New york NY 922282         |   test123           |Nevada      |  New York     | 2313231        |     D   |         
+ Background : 
+   Given admin navigates to the application
+   And admin is logged in 
+   And admin navigates to the settings panel 
+
+    Scenario Outline: Verify that admin can add general settings 
+      Given admin is on the general settings page
+      # And admin adds new Name
+      # And admin adds new primaryEmail
+      # And admin adds website
+      #  And admin adds adressLine1
+      # And admin adds adressLine2
+      # And admin addds County
+      # And admin adds zip
+      # And admin adds bay1Name
+      # And admin adds bay2Name
+      # And admin adds bay3Name
+      # And admin adds bay4Name
+      #Then admin checks terms&co
+      #And admin adds terms&co  link
+      #And amin checks policy and adds  cancellation link
+      #Then save button should be available
+      #When admin clicks the save button 
+      #Then general settings data should be updated 
+
+   # Scenario Outline: Verify that admin can edit general settings with invalid email 
+     # When admin is on the general settings page 
+     # When admin adds new Name
+     # And admin adds new invalid primaryEmail 
+     # Then email box  should invalidate incorrect email 
+      
