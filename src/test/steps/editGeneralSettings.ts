@@ -33,31 +33,31 @@ When('admin adds new primaryEmail', async function () {
 
 When('admin adds new  website', async function () {
     await new Promise(resolve => setTimeout(resolve, 2000));
-    admin.addWebsite()
+    await admin.addWebsite()
 });
 When('admin adds new adressLine1', async function () {
     await new Promise(resolve => setTimeout(resolve, 2000));
-    await admin.addAdressLine1
+    await admin.addAdressLine1()
 });
 
 When('admin adds new adressLine2', async function () {
     await new Promise(resolve => setTimeout(resolve, 1000));
-    await admin.addAdressLine2
+    await admin.addAdressLine2()
 });
 
 When('admin addds new city', async function () {
     await new Promise(resolve => setTimeout(resolve, 1000));
-    await admin.addCityName
+    await admin.addCityName()
 });
 
 When('admin adds new state', async function () {
     await new Promise(resolve => setTimeout(resolve, 1000));
-    await admin.addState
+    await admin.addState()
 });
 
 When('admin adds new zip', async function () {
-    await new Promise(resolve => setTimeout(resolve, 1000));
-    await admin.addZipCode
+    await new Promise(resolve => setTimeout(resolve, 2000));
+    await admin.addZipCode()
 });
 
 When('admin adds new bay names', async function () {
@@ -70,20 +70,14 @@ When('admin checks terms&co', async function () {
     admin.addTermsCo()
 });
 
-When('admin adds terms&co  link', async function () {
 
-
-});
 
 When('amin checks policy checkbox', async function () {
     await new Promise(resolve => setTimeout(resolve, 2000));
     admin.addCancellPolicy()
 });
 
-When('admin adds cancellation link', async function () {
 
-
-});
 
 Then('general settings data should be updated', async function () {
     await new Promise(resolve => setTimeout(resolve, 5000));

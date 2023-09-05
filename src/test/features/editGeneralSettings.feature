@@ -1,6 +1,6 @@
 Feature: Edit general settings
 
-    Background:
+  Background:
     Given admin navigates to the application
     And admin is logged in
     And admin navigates to the settings panel
@@ -17,16 +17,14 @@ Feature: Edit general settings
     And admin adds new bay names
     Then save button should be available
     When admin checks terms&co
-    And admin adds terms&co  link
     And amin checks policy checkbox
-    And admin adds cancellation link
     Then save button should be available
     When admin clicks the save button
     Then general settings data should be updated
 
-# Scenario Outline: Verify that admin can edit general settings with invalid email
-# When admin is on the general settings page
-# When admin adds new Name
-# And admin adds new invalid primaryEmail
-# Then email box  should invalidate incorrect email
+  Scenario Outline: Verify that admin can edit general settings with invalid email
+    When admin adds new settingsName
+    And admin adds new invalid primaryEmail
+    Then email box  should invalidate incorrect email
+    Andgit  save button should be unavailable
 
