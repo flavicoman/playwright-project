@@ -17,11 +17,19 @@ export class MembersPage extends HomePage {
     private saveButton: Locator = this.page.locator('button', { hasText: 'Save' })
     private membershipSelector: Locator = this.page.locator("div.dropdown-arrow.css-1xc3v61-indicatorContainer")
 
+    private accountNameInput: Locator = this.page.locator(".account-container > div:nth-child(2) input")
+    private accountLastNameInput: Locator = this.page.locator(".account-container > div:nth-child(3) input")
+    private accountPhoneInput: Locator = this.page.locator(".account-container > div:last-child input")
+
+    private membersCard: Locator = this.page.locator(".card.member-details-container")
+
     constructor(page: Page) {
         super(page);
 
     }
+
     name = faker.person.firstName()
+    memberName = faker.person.firstName()
     public async clickPlusSign() {
         await this.plus.click();
     }
@@ -80,13 +88,45 @@ export class MembersPage extends HomePage {
         await expect(await this.page.locator(`button[type='submit']`).isEnabled()).toBe(false)
     }
 
-    public async addInvalidEmail(){
-         await this.emailInput.fill("   ")
+    public async addInvalidEmail() {
+        await this.emailInput.fill("   ")
     }
 
     public async addInvalidPhoneNumber() {
         await this.phoneNumberInput.fill(" ")
     }
 
+    public async selectDesiredMember(name: string) {
+        const tableRow = this.page.locator('tbody tr').filter({ hasText: name });
+        await tableRow.click()
+    }
+
+    public async addAccountName() {
+        await this.accountNameInput.clear()
+        await this.accountNameInput.fill(this.memberName)
+
+
+    }
+
+    public async addAccountLastName() {
+        await this.accountLastNameInput.clear()
+        await this.accountLastNameInput.fill(faker.person.lastName())
+
+    }
+
+    public async addAccountPhoneNumber() {
+        await this.accountPhoneInput.clear()
+        await this.accountPhoneInput.fill(faker.phone.number('04#####'))
+    }
+
+
+    public async checkAddedData() {
+        const element = await this.page.waitForSelector(`text=${this.memberName}`);
+        expect(element).not.toBeNull();
+    }
+
+    public async checkMembersCard() {
+        await expect(await this.membersCard.isVisible()).toBe(true);
+    }
 
 }

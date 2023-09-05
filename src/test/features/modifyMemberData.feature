@@ -1,7 +1,8 @@
 Feature: Modify member
 
 Background:
-    Given User is logged in
+    Given admin navigates to the application
+    And admin is logged in
     And admin navigates to the members panel 
    
 Scenario Outline: Modify member account's data
@@ -15,5 +16,5 @@ Scenario Outline: Modify member account's data
   Then member's account data should be edited succesfully
 
 
-  Scenario Outline: Deactivate membership functionality 
+ # Scenario Outline: Deactivate membership functionality 
  
