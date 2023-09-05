@@ -10,11 +10,8 @@ export class HomePage {
     }
 
     public async verifySignIn() {
-        //await new Promise(resolve => setTimeout(resolve, 2000));
         await pageFixture.page.waitForSelector("div.header-container", { timeout: 10000 }); // Increase timeout to 10 seconds
         await new Promise(resolve => setTimeout(resolve, 2000));
-        //const elementText = await pageFixture.page.locator("p:has-text('Coman')").textContent();
-        //console.log(elementText); // Log the text content t
     }
 
     public async clickArrowBtn() {
@@ -36,7 +33,6 @@ export class HomePage {
 
     public async goToMembersPage() {
         await new Promise(resolve => setTimeout(resolve, 3000));
-        //const el = await this.page.locator("div.small-format-item>>nth=1")
         await this.page.locator("div.small-format-item>>nth=1").click();
     }
 
@@ -48,7 +44,6 @@ export class HomePage {
 
     public async goToDesiredPage(desiredPage: Locator) {
         await new Promise(resolve => setTimeout(resolve, 3000));
-        //const el = await this.page.locator("div.small-format-item>>nth=1")
         await this.page.locator(desiredPage.toString()).click();
     }
 

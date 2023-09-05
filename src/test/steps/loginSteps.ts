@@ -15,18 +15,19 @@ Given('admin navigates to the application', async function () {
   await mypage.goto();
 });
 
-Given('User enter the username', async function () {
+Given('User enter valid username', async function () {
 
   login = new LoginPage(pageFixture.page);
   await login.enterUser(users.username)
+  await new Promise(resolve => setTimeout(resolve, 2000));
 });
 
-Given('User enter the password', async function () {
+Given('User enter valid password', async function () {
+  await new Promise(resolve => setTimeout(resolve, 2000));
   await login.enterPass(users.pass);
 });
 
 When('User click on the signIn button', async function () {
-
   await login.clickLoginBtn();
 });
 
@@ -47,7 +48,24 @@ Then('the User clicks on the logout confirm button', { timeout: 90000 }, async f
   user.confirmLogOut();
 });
 
-Then('the user should be logged out', async function () {
+When('User enter invalid username', async function () {
+  login = new LoginPage(pageFixture.page);
+  await login.enterUser(users.invalidUsername);
+});
 
+Then('user should not be allowed to login', async function () {
+  await new Promise(resolve => setTimeout(resolve, 2000));
+  await  login.checkLoginDenial(); 
+
+});
+
+When('User enter invalid password', async function () {
+  await new Promise(resolve => setTimeout(resolve, 2000));
+   await login.enterPass(users.invalidPassword)
+});
+
+Then('user should be notified about wrong password', async function () {
+  await new Promise(resolve => setTimeout(resolve, 3000));
+  await login.checkWrongPassNotification()
 });
 
