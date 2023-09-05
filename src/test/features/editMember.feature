@@ -1,7 +1,8 @@
 Feature : Edit member's account data 
 
   Background: 
-     Given admin navigates to the application 
+     Given admin navigates to the application
+     And admin is logged in  
      And admin selects the members page 
 
   Scenario Outline: Verify that admin can modify member's data

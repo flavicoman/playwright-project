@@ -65,7 +65,31 @@ Then('member should be added succesfully', async function () {
   admin.checkAddedMember();
 });
 
+When('admin adds invalid first name', async function () {
+     admin.addInvalidName()
 
+});
+
+When('admin adds invalid last name', async function () {
+    admin.addInvalidName()
+
+});
+
+Then('changes cannot be saved', async function () {
+  await new Promise(resolve => setTimeout(resolve, 2000));
+    admin.checkSaveBtn()
+});
+
+When('admin adds invalid member phoneNumber', async function () {
+  await new Promise(resolve => setTimeout(resolve, 2000));
+  admin.addInvalidEmail()
+  
+});
+
+When('admin adds invalid member email', async function () {
+  await new Promise(resolve => setTimeout(resolve, 2000));
+  admin.addInvalidPhoneNumber()
+});
 
 
 
