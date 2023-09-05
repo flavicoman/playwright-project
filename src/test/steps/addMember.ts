@@ -1,8 +1,8 @@
 import { Given, When, Then } from "@cucumber/cucumber";
-import { LoginPage } from "../pages/login.page";
+import { LoginPage } from "../pages/Login.page";
 import { pageFixture } from "../setup/pageFixture";
 import users from "../user-data/users.json"
-import { MembersPage } from "../pages/membersPage.page";
+import { MembersPage } from "../pages/MembersPage.page";
 
 let login: LoginPage;
 let admin: MembersPage;
@@ -56,7 +56,7 @@ Then("click on '{}' button", async function (buttonName: string) {
 
 Given('admin clicks the save button', async function () {
   admin.clickSaveButton();
-  await new Promise(resolve => setTimeout(resolve, 2000));
+  await new Promise(resolve => setTimeout(resolve, 6000));
 
 });
 

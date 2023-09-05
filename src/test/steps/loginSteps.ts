@@ -1,8 +1,8 @@
 import { Given, When, Then } from "@cucumber/cucumber";
 import { pageFixture } from "../setup/pageFixture";
-import { BasePage } from "../pages/basePage.page";
+import { BasePage } from "../pages/BasePage.page";
 import users from "../user-data/users.json"
-import { LoginPage } from "../pages/login.page";
+import { LoginPage } from "../pages/Login.page";
 import { HomePage } from "../pages/HomePage.page";
 
 
