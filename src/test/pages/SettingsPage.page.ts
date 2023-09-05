@@ -27,15 +27,13 @@ export class SettingsPage extends HomePage {
 
     private termsCoCheckboc: Locator = this.page.locator(".flex.flex-col.gap-3 > div:nth-child(1) input.checkbox-input")
     private cancelPolicyCheckbox: Locator = this.page.locator(".flex.flex-col.gap-3 > div:nth-child(2) input.checkbox-input")
-    private termsCoBox: Locator = this.page.locator(".flex.flex-col.gap-3 > div:nth-child(1) input.input")
-    private cancelPolicyBox: Locator = this.page.locator(".flex.flex-col.gap-3 > div:nth-child(2) input.input")
+    private invalidInputBox: Locator = this.page.locator(".label.invalid.translate-y-3");
 
     public name = faker.lorem.word()
     public email = faker.internet.email()
 
     constructor(page: Page) {
         super(page);
-
     }
 
     public async addSettingsName() {
@@ -52,7 +50,7 @@ export class SettingsPage extends HomePage {
         await this.websiteInput.clear()
         await this.websiteInput.fill(website)
     }
-    
+
     public async addAdressLine1() {
         await this.adress1Input.clear()
         await this.adress1Input.fill(faker.location.streetAddress())
@@ -75,7 +73,6 @@ export class SettingsPage extends HomePage {
     }
 
     public async addZipCode() {
-
         await this.zipInput.fill(faker.location.zipCode())
     }
 
@@ -88,26 +85,30 @@ export class SettingsPage extends HomePage {
         await new Promise(resolve => setTimeout(resolve, 1000));
         await this.bay4Input.fill(faker.word.sample(3))
     }
-    
-    public async addTermsCo () {
-       await this.termsCoCheckboc.click();
+
+    public async addTermsCo() {
+        await this.termsCoCheckboc.click();
     }
 
-    public async addCancellPolicy() { 
+    public async addCancellPolicy() {
         await this.cancelPolicyCheckbox.click();
     }
 
     public async checkAdddedSettings() {
-        await expect( await this.settingsNameInput.inputValue()).toBe(this.name);
+        await expect(await this.settingsNameInput.inputValue()).toBe(this.name);
         await expect(await this.primaryEmailInput.inputValue()).toBe(this.email);
     }
 
+    public async addInvalidEmail() {
+        await this.primaryEmailInput.fill(" ")
+    }
 
+    public async checkInvalidEmailInputBox() {
+        await expect(this.invalidInputBox).not.toBeNull();
+    }
 
-
-
-
-
-
+    public async checkSaveButton() {
+        await expect(await this.page.locator(`button[type='submit']`).isEnabled()).toBe(false)
+    }
 }
 

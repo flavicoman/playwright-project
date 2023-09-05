@@ -26,5 +26,5 @@ Feature: Edit general settings
     When admin adds new settingsName
     And admin adds new invalid primaryEmail
     Then email box  should invalidate incorrect email
-    Andgit  save button should be unavailable
+    And  save button should be disabled
 

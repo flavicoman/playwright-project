@@ -83,3 +83,20 @@ Then('general settings data should be updated', async function () {
     await new Promise(resolve => setTimeout(resolve, 5000));
     admin.checkAdddedSettings()
 });
+
+When('admin adds new invalid primaryEmail', async function () {
+    await new Promise(resolve => setTimeout(resolve, 2000));
+    admin.addInvalidEmail()
+
+  });
+
+
+  Then('email box  should invalidate incorrect email', async function () {
+     admin.checkInvalidEmailInputBox()
+     await new Promise(resolve => setTimeout(resolve, 5000));
+
+  });
+
+  Then('save button should be disabled', async function () {
+    admin.checkSaveButton()
+  });
