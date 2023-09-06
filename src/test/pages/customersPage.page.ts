@@ -20,9 +20,14 @@ export class CustomerPage extends MembersPage {
     membershipPlanInput: Locator = this.page.locator(".text-displayFive:nth-child(1) input")
     currentMembershipLocator: Locator = this.page.locator(".current-membership-name")
     membersTab: Locator = this.page.locator(".members-page button:nth-child(1)")
+    saveButton : Locator = this.page.locator("button[type='submit']")
+    public memberCard : Locator = this.page.locator(".card.member-details-container")
+    private xMark : Locator = this.page.locator(".fa-xmark")
+
 
     membershipPlanName: string = "Advanced"
     customerName = "aanh aanh"
+    
     public async addInvalidName() {
         await this.firstNameInput.fill("   ");
         await new Promise(resolve => setTimeout(resolve, 4000));
@@ -34,12 +39,12 @@ export class CustomerPage extends MembersPage {
     }
 
     public async addInvalidEmail() {
-
+      await this.emailInput.fill("  ")
     }
 
     public async checkSaveButtonAvailability() {
         await new Promise(resolve => setTimeout(resolve, 5000));
-        await expect(this.page.locator(`button[type='submit']`)).toBeDisabled({ timeout: 10000 });
+        await expect(this.saveButton).toBeDisabled({ timeout: 10000 });
     }
 
     public async checkAddedCustomer() {
@@ -51,7 +56,7 @@ export class CustomerPage extends MembersPage {
     }
 
     public async checkCustomerDetailWindow() {
-        await expect(this.page.locator(".card.member-details-container")).toBeInViewport()
+        await expect(this.memberCard).toBeInViewport()
     }
 
     public async goToAddMembership() {
@@ -69,7 +74,7 @@ export class CustomerPage extends MembersPage {
 
     public async assertAddedMembership() {
         await expect(this.currentMembershipLocator).toContainText(this.membershipPlanName);
-        await this.page.locator(".fa-xmark").click()
+        await this.xMark.click()
     }
 
     public async checkAddedMembership(customer:string) {

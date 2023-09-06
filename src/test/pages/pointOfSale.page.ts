@@ -22,17 +22,21 @@ export class PointSales extends HomePage {
     private continueButton = this.page.locator(".buttons-row .standard-button")
     private confirmationDialog = this.page.locator(".confirmation-dialog-container")
     private requirePaymentCheckbox = this.page.locator(".checkbox-input")
+    private settingsTab: Locator = this.page.locator("div.small-format-item>>nth=2")
+    private pointOfSaleTab: Locator = this.page.locator(".settings-menu-item:nth-child(5)")
+    private pointOfSaleContainer: Locator = this.page.locator(".pointOfSale-container")
+    private confirmDialogContainer: Locator = this.page.locator(".confirmation-dialog-container")
 
     fee = generateRandomNumber();
-
+    category = faker.word.sample(5)
     constructor(page: Page) {
         super(page);
     }
 
     public async goToPointOfSale() {
-        await this.page.locator("div.small-format-item>>nth=2").click();
+        await this.settingsTab.click();
         await new Promise(resolve => setTimeout(resolve, 1000));
-        await this.page.locator(".settings-menu-item:nth-child(5)").click();
+        await this.pointOfSaleTab.click();
     }
 
     public async addNewRateName() {
@@ -46,7 +50,7 @@ export class PointSales extends HomePage {
     }
 
     public async addCategory() {
-        await this.categoryInput.fill("cat123")
+        await this.categoryInput.fill(this.category)
     }
 
     public async addGLCode() {
@@ -55,7 +59,7 @@ export class PointSales extends HomePage {
 
     public async checkAddedrate() {
         await new Promise(resolve => setTimeout(resolve, 5000));
-        expect(this.page.locator(".pointOfSale-container")).toContainText(name);
+        expect(this.pointOfSaleContainer).toContainText(name);
     }
 
     public async selectThreeDots() {
@@ -70,7 +74,7 @@ export class PointSales extends HomePage {
 
     public async checkEditedRate() {
         await new Promise(resolve => setTimeout(resolve, 2000));
-        expect(this.page.locator(".pointOfSale-container")).toContainText(name);
+        expect(this.pointOfSaleContainer).toContainText(name);
     }
 
     public async selectDeleteOption() {
@@ -87,7 +91,7 @@ export class PointSales extends HomePage {
 
     public async checkDeletedRate() {
         await new Promise(resolve => setTimeout(resolve, 2000));
-        expect(this.page.locator(".pointOfSale-container")).not.toContainText(name);
+        expect(this.pointOfSaleContainer).not.toContainText(name);
     }
 
     public async requirePayment() {
@@ -95,7 +99,7 @@ export class PointSales extends HomePage {
     }
 
     public async checkRPBox() {
-        expect(this.page.locator(".confirmation-dialog-container")).toBeVisible();
+        await expect(this.confirmDialogContainer).toBeVisible();
     }
 
     public async verifyEnabledCheckbox() {

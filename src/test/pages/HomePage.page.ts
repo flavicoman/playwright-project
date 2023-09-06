@@ -1,13 +1,19 @@
 import { Page } from "@playwright/test";
 import { pageFixture } from "../setup/pageFixture";
 import { Locator } from "@playwright/test";
+import { page } from "../setup/hooks";
+
+
 
 export class HomePage {
 
-    public page: Page;
     constructor(page: Page) {
         this.page = page;
     }
+    public page: Page;
+
+
+
 
     public async verifySignIn() {
         await pageFixture.page.waitForSelector("div.header-container", { timeout: 10000 }); // Increase timeout to 10 seconds
@@ -15,8 +21,9 @@ export class HomePage {
     }
 
     public async clickArrowBtn() {
-        const el = await this.page.locator("svg.svg-inline--fa.fa-chevron-down.fa-lg.cursor-pointer");
-        await el.click();
+        // const el = await this.page.locator("svg.svg-inline--fa.fa-chevron-down.fa-lg.cursor-pointer");
+        // const el = await this.page.locator(signInButton);
+       // await signInButton.click();
     }
 
     public async logOut() {

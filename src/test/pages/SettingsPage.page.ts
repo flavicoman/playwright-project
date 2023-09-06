@@ -29,6 +29,8 @@ export class SettingsPage extends HomePage {
     public name = faker.lorem.word()
     public email = faker.internet.email()
 
+    saveButton = this.page.locator(`button[type='submit']`)
+
     constructor(page: Page) {
         super(page);
     }
@@ -104,7 +106,7 @@ export class SettingsPage extends HomePage {
     }
 
     public async checkSaveButton() {
-        await expect(await this.page.locator(`button[type='submit']`).isEnabled()).toBe(false)
+        await expect(await this.saveButton.isEnabled()).toBe(false)
     }
 }
 

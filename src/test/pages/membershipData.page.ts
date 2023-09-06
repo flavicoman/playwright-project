@@ -21,6 +21,10 @@ export class membData extends HomePage {
     private deleteButton: Locator = this.page.locator(".dropdown-menu-item.undefined.danger")
     private deletePopUp = this.page.locator(".text-displayTwo.text-UIColors-darkAlert")
     private continueButton: Locator = this.page.locator(".standard-button.outlined-dialog.regular")
+    private settingsTab : Locator =  this.page.locator("div.small-format-item>>nth=2")
+    private membershiSettingsTab : Locator = this.page.locator(".settings-menu-item:nth-child(4)")
+    private membershipValueInput : Locator =  this.page.locator('.input')
+
 
     constructor(page: Page) {
         super(page);
@@ -29,21 +33,21 @@ export class membData extends HomePage {
     value = generateRandomNumber()
     name = generateRandomName()
     public async gotoMembershipSettings() {
-        await this.page.locator("div.small-format-item>>nth=2").click();
+        await this.settingsTab.click();
         await new Promise(resolve => setTimeout(resolve, 1000));
-        await this.page.locator(".settings-menu-item:nth-child(4)").click();
+        await this.membershiSettingsTab.click();
     }
     public async selectMMAInputBox() {
         await this.page.getByText('Maximum Memberships Allowed').click();
     }
     public async addMembershipsValue() {
-        await this.page.locator('.input').clear()
+        await this.membershipValueInput.clear()
         await new Promise(resolve => setTimeout(resolve, 2000));
-        await this.page.locator('.input').type(this.value)
+        await this.membershipValueInput.type(this.value)
     }
 
     public async checkAddedValue() {
-        const inputValue = await this.page.locator('.input').inputValue();
+        const inputValue = await this.membershipValueInput.inputValue();
         await new Promise(resolve => setTimeout(resolve, 4000));
         await expect(inputValue).toContain(this.value);
     }

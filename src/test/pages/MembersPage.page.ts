@@ -16,7 +16,7 @@ export class MembersPage extends HomePage {
     public lastNameInput: Locator = this.page.locator(".input-fields-container:nth-child(2) .input-container:nth-child(2) input")
     public phoneNumberInput: Locator = this.page.locator(".input-fields-container:nth-child(4) .input-container:nth-child(2) input")
     public emailInput: Locator = this.page.locator(".input-fields-container:nth-child(4) .input-container:nth-child(1) input ");
-    private saveButton: Locator = this.page.locator('button', { hasText: 'Save' })
+    public saveButton: Locator = this.page.locator('button', { hasText: 'Save' })
     private membershipSelector: Locator = this.page.locator("div.dropdown-arrow.css-1xc3v61-indicatorContainer")
 
     private accountNameInput: Locator = this.page.locator(".account-container > div:nth-child(2) input")
@@ -31,7 +31,6 @@ export class MembersPage extends HomePage {
     private optionsFeature: Locator = this.page.locator(".dropdown-menu.left-0")
     private edtiMembershipButton: Locator = this.page.locator(".dropdown-menu .dropdown-menu-item.undefined:first-child")
     private membershipInput: Locator = this.page.locator(".form-container > div:nth-child(2) input ")
-    private startDateInput: Locator = this.page.locator(".form-container > div:nth-child(3) input ")
     private membershipContainer: Locator = this.page.locator(".current-membership-name")
     private calendarButton: Locator = this.page.locator(".fa-calendar-day")
     private calendarArrow: Locator = this.page.locator("button .fa-arrow-right")
