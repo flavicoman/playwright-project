@@ -19,7 +19,6 @@ Then('window with customer details should pop-up', async function () {
 Then('admin navigates on the membership tab', async function () {
   admin.goToAddMembership()
   await new Promise(resolve => setTimeout(resolve, 2000));
-
 });
 
 Then('admin clicks “Add a Membership” button', async function () {

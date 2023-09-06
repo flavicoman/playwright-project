@@ -9,6 +9,8 @@ import { faker } from "@faker-js/faker";
 
 
 export class MembersPage extends HomePage {
+    public customersTab: Locator = this.page.locator(".tab-group > button:nth-child(2)")
+
     private plus: Locator = this.page.locator("svg[data-icon=plus]")
     public firstNameInput: Locator = this.page.locator(".input-fields-container:nth-child(2) .input-container:nth-child(1) input")
     public lastNameInput: Locator = this.page.locator(".input-fields-container:nth-child(2) .input-container:nth-child(2) input")
@@ -22,10 +24,13 @@ export class MembersPage extends HomePage {
     private accountPhoneInput: Locator = this.page.locator(".account-container > div:last-child input")
 
     private membersCard: Locator = this.page.locator(".card.member-details-container")
+    private membershipButton: Locator = this.page.locator(".details-navigation .details-option:nth-child(2)")
+    private threeDots: Locator = this.page.locator(".cursor-pointer:first-child")
+    private deactivateOption: Locator = this.page.locator(".dropdown-menu .dropdown-menu-item.undefined.danger")
+    private deactivateButton: Locator = this.page.locator(".form-container button:first-child")
 
     constructor(page: Page) {
         super(page);
-
     }
 
     name = faker.person.firstName()
@@ -54,29 +59,21 @@ export class MembersPage extends HomePage {
 
     public async clickSaveButton() {
         await this.saveButton.click();
-
         await new Promise(resolve => setTimeout(resolve, 4000));
-
     }
     public async addDate() {
-
     }
-
     public async selectMembership() {
         this.membershipSelector.click()
     }
 
     public async checkAddedMember() {
-
         const element = await this.page.waitForSelector(`text=${this.name}`);
         expect(element).not.toBeNull();
-
     }
 
     public async goToCustomerPage() {
-
         await this.page.getByRole('button', { name: 'Customers' }).click()
-
     }
 
     public async addInvalidName() {
@@ -104,21 +101,17 @@ export class MembersPage extends HomePage {
     public async addAccountName() {
         await this.accountNameInput.clear()
         await this.accountNameInput.fill(this.memberName)
-
-
     }
 
     public async addAccountLastName() {
         await this.accountLastNameInput.clear()
         await this.accountLastNameInput.fill(faker.person.lastName())
-
     }
 
     public async addAccountPhoneNumber() {
         await this.accountPhoneInput.clear()
         await this.accountPhoneInput.fill(faker.phone.number('04#####'))
     }
-
 
     public async checkAddedData() {
         const element = await this.page.waitForSelector(`text=${this.memberName}`);
@@ -129,4 +122,30 @@ export class MembersPage extends HomePage {
         await expect(await this.membersCard.isVisible()).toBe(true);
     }
 
+    public async goToMembershipTab() {
+        await this.membershipButton.click()
+    }
+
+    public async clickTheThreeDots() {
+        await this.threeDots.click()
+    }
+
+    public async checkDeactivateButton() {
+        await expect(await this.deactivateButton.isVisible()).toBe(true);
+    }
+
+    public async clickDeactivateOption() {
+        await this.deactivateOption.click();
+    }
+
+    public async clickDeactivateButton() {
+        await this.deactivateButton.click()
+    }
+
+    public async checkDeactivatedMembership(selectedMember: string) {
+        await this.customersTab.click()
+        await new Promise(resolve => setTimeout(resolve, 2000));
+        await expect(this.page.waitForSelector(`text=${selectedMember}`)).not.toBeNull();
+        await new Promise(resolve => setTimeout(resolve, 5000));
+    }
 }

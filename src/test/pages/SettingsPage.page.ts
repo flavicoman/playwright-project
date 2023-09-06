@@ -5,10 +5,7 @@ import { Faker, faker } from "@faker-js/faker";
 import { Locator } from "@playwright/test";
 import expect from "expect";
 
-
 const website = faker.internet.domainName()
-
-
 export class SettingsPage extends HomePage {
 
     private settingsNameInput: Locator = this.page.locator(".section-container:first-child > div:nth-child(1) input")
@@ -69,7 +66,6 @@ export class SettingsPage extends HomePage {
         await this.stateInput.fill(faker.location.state())
         await this.page.keyboard.press('ArrowDown');
         await this.page.keyboard.press('Enter');
-
     }
 
     public async addZipCode() {

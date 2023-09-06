@@ -27,7 +27,6 @@ export class PointSales extends HomePage {
 
     constructor(page: Page) {
         super(page);
-
     }
 
     public async goToPointOfSale() {
@@ -40,7 +39,6 @@ export class PointSales extends HomePage {
         await this.rateNameInput.clear()
         await this.rateNameInput.type(name);
         await new Promise(resolve => setTimeout(resolve, 2000));
-
     }
 
     public async addFee() {
@@ -59,8 +57,6 @@ export class PointSales extends HomePage {
         await new Promise(resolve => setTimeout(resolve, 5000));
         expect(this.page.locator(".pointOfSale-container")).toContainText(name);
     }
-
-
 
     public async selectThreeDots() {
         const threeDotsButton = this.page.locator(".cursor-pointer")

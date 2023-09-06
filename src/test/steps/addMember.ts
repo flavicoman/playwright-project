@@ -14,10 +14,11 @@ Given('admin is logged in', async function () {
   await login.enterPass(users.pass);
   await login.clickLoginBtn();
   await admin.verifySignIn();
+  await new Promise(resolve => setTimeout(resolve, 5000));
 });
 
 Given('admin navigates to the members panel', async function () {
-  //admin.goToDesiredPage(this.page.locator("div.small-format-item>>nth=1"));
+  
   admin.goToMembersPage();
 });
 
@@ -61,18 +62,15 @@ Given('admin clicks the save button', async function () {
 });
 
 Then('member should be added succesfully', async function () {
-
   admin.checkAddedMember();
 });
 
 When('admin adds invalid first name', async function () {
      admin.addInvalidName()
-
 });
 
 When('admin adds invalid last name', async function () {
     admin.addInvalidName()
-
 });
 
 Then('changes cannot be saved', async function () {

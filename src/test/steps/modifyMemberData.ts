@@ -5,15 +5,17 @@ import { MembersPage } from "../pages/MembersPage.page";
 
 let admin: MembersPage;
 
+let selectedMember: string = "Andrei Ioan"
+
 
 Given('admin selects member\'s account', async function () {
     admin = new MembersPage(pageFixture.page)
-    await new Promise(resolve => setTimeout(resolve, 4000));
-    await admin.selectDesiredMember("Alex234 Teste")
+    await new Promise(resolve => setTimeout(resolve, 2000));
+    await admin.selectDesiredMember(selectedMember)
 });
 
 Given('member\'s personal file pops up', async function () {
-    await new Promise(resolve => setTimeout(resolve, 3000));
+    await new Promise(resolve => setTimeout(resolve, 2000));
     await admin.checkMembersCard()
 });
 
@@ -32,8 +34,34 @@ Given('admin insers new phoneNumber', async function () {
     await admin.addAccountPhoneNumber()
 });
 
-
 Then('member\'s account data should be edited succesfully', async function () {
     await admin.checkAddedData()
+});
 
+When('admin clicks on the Membership tab', async function () {
+    await admin.goToMembershipTab()
+});
+
+When('admin clicks the three dots on the right', async function () {
+    await admin.clickTheThreeDots()
+    await new Promise(resolve => setTimeout(resolve, 2000));
+});
+
+Then('deactivate membership button should appear', async function () {
+    await new Promise(resolve => setTimeout(resolve, 2000));
+    await admin.checkDeactivateButton()
+});
+
+When('admin selects deactivate membership option', async function () {
+    await admin.clickDeactivateOption()
+    await new Promise(resolve => setTimeout(resolve, 2000));
+});
+
+When('admin clicks on the deactivate button', async function () {
+    await admin.clickDeactivateButton()
+    await new Promise(resolve => setTimeout(resolve, 3000));
+});
+
+Then('member should be moved back to customer section', async function () {
+    await admin.checkDeactivatedMembership(selectedMember)
 });

@@ -4,11 +4,6 @@ import { pageFixture } from "../setup/pageFixture";
 import { Locator } from "@playwright/test";
 import { SettingsPage } from "../pages/SettingsPage.page";
 
-
-
-
-
-
 let browser: Browser;
 let page: Page;
 let admin: SettingsPage
@@ -17,7 +12,6 @@ Given('admin navigates to the settings panel', async function () {
     admin = new SettingsPage(pageFixture.page);
     admin.goToSettingsPage()
     await new Promise(resolve => setTimeout(resolve, 1000));
-
 });
 
 When('admin adds new settingsName', async function () {
@@ -28,7 +22,6 @@ When('admin adds new settingsName', async function () {
 When('admin adds new primaryEmail', async function () {
     await new Promise(resolve => setTimeout(resolve, 2000));
     admin.addSettingsEmail()
-
 });
 
 When('admin adds new  website', async function () {
@@ -70,14 +63,10 @@ When('admin checks terms&co', async function () {
     admin.addTermsCo()
 });
 
-
-
 When('amin checks policy checkbox', async function () {
     await new Promise(resolve => setTimeout(resolve, 2000));
     admin.addCancellPolicy()
 });
-
-
 
 Then('general settings data should be updated', async function () {
     await new Promise(resolve => setTimeout(resolve, 5000));
@@ -87,14 +76,11 @@ Then('general settings data should be updated', async function () {
 When('admin adds new invalid primaryEmail', async function () {
     await new Promise(resolve => setTimeout(resolve, 2000));
     admin.addInvalidEmail()
-
   });
-
 
   Then('email box  should invalidate incorrect email', async function () {
      admin.checkInvalidEmailInputBox()
      await new Promise(resolve => setTimeout(resolve, 5000));
-
   });
 
   Then('save button should be disabled', async function () {

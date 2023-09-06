@@ -56,7 +56,6 @@ When('User enter invalid username', async function () {
 Then('user should not be allowed to login', async function () {
   await new Promise(resolve => setTimeout(resolve, 2000));
   await  login.checkLoginDenial(); 
-
 });
 
 When('User enter invalid password', async function () {

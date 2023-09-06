@@ -43,17 +43,19 @@ export class membData extends HomePage {
     }
 
     public async checkAddedValue() {
-
         const inputValue = await this.page.locator('.input').inputValue();
         await new Promise(resolve => setTimeout(resolve, 4000));
         await expect(inputValue).toContain(this.value);
     }
+
     public async clickPlusSign() {
         await this.plus.click();
     }
+
     public async addNewName() {
         await this.nameInput.type(this.name)
     }
+
     public async selectBookingGroup() {
         await this.dropDownBGroup.click();
         await new Promise(resolve => setTimeout(resolve, 1000));
@@ -108,12 +110,10 @@ export class membData extends HomePage {
         // await expect(this.deletePopUp).toBeVisible()
     }
 
-
     public async clickContinue() {
         await this.continueButton.click()
     }
 
     public async checkDeletedMembership() {
-
     }
 }

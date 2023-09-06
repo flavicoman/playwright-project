@@ -36,7 +36,6 @@ export class HomePage {
         await this.page.locator("div.small-format-item>>nth=1").click();
     }
 
-
     public async goToSettingsPage() {
         const el = await this.page.locator("div.small-format-item>>nth=2");
         await el.click();
@@ -46,6 +45,4 @@ export class HomePage {
         await new Promise(resolve => setTimeout(resolve, 3000));
         await this.page.locator(desiredPage.toString()).click();
     }
-
-
 }

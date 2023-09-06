@@ -9,7 +9,6 @@ export class CustomerPage extends MembersPage {
 
     constructor(page: Page) {
         super(page);
-
     }
 
     firstNameInput: Locator = this.page.locator(`.input-container.undefined:nth-child(1) input`)

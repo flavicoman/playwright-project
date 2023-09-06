@@ -4,15 +4,11 @@ import { Locator } from "@playwright/test";
 import { page } from "../setup/hooks";
 
 export class LoginPage {
-    
+
     page: Page;
     constructor(page: Page) {
         this.page = page;
-
     }
-    
-    
-
     public async enterUser(email: string) {
 
         const ele = await this.page.locator("input[type='email']");
@@ -27,10 +23,9 @@ export class LoginPage {
     public async clickLoginBtn() {
         const ele = await this.page.locator("button[type='submit']");
         await ele.click({ timeout: 10000 });
-
     }
-    
-    public async checkLoginDenial() { 
+
+    public async checkLoginDenial() {
         await expect(await this.page.locator(".entry-item:first-child .error").isVisible()).toBe(true)
     }
 
