@@ -5,7 +5,7 @@ import { MembersPage } from "../pages/MembersPage.page";
 
 let admin: MembersPage;
 
-let selectedMember: string = "Astrid Astrid"
+let selectedMember: string = "Alex Rookie"
 
 
 Given('admin selects member\'s account', async function () {
@@ -65,3 +65,29 @@ When('admin clicks on the deactivate button', async function () {
 Then('member should be moved back to customer section', async function () {
     await admin.checkDeactivatedMembership(selectedMember)
 });
+
+Then('the membership options feature should pop-up', async function () {
+    await admin.checkOptionFeature()
+  });
+
+  
+  Then('admin clicks “Edit membership”', async function () {
+  await admin.clickEditOption()
+
+  });
+
+  
+  When('admin selects date', async function () {
+    await new Promise(resolve => setTimeout(resolve, 3000)); 
+   await admin.addStartDate()
+  });
+
+  When('admin selects membershipPlan', async function () {
+   await admin.addMembershipPlan()
+   await new Promise(resolve => setTimeout(resolve, 3000));
+  });
+
+  Then('user\'s membership should be edited succesfully', async function () {
+     admin.checkChangedMembershipPlan()
+   
+  });

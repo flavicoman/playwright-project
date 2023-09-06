@@ -10,7 +10,7 @@ import { faker } from "@faker-js/faker";
 
 export class MembersPage extends HomePage {
     public customersTab: Locator = this.page.locator(".tab-group > button:nth-child(2)")
-
+  
     private plus: Locator = this.page.locator("svg[data-icon=plus]")
     public firstNameInput: Locator = this.page.locator(".input-fields-container:nth-child(2) .input-container:nth-child(1) input")
     public lastNameInput: Locator = this.page.locator(".input-fields-container:nth-child(2) .input-container:nth-child(2) input")
@@ -28,6 +28,15 @@ export class MembersPage extends HomePage {
     private threeDots: Locator = this.page.locator(".cursor-pointer:first-child")
     private deactivateOption: Locator = this.page.locator(".dropdown-menu .dropdown-menu-item.undefined.danger")
     private deactivateButton: Locator = this.page.locator(".form-container button:first-child")
+    private optionsFeature: Locator = this.page.locator(".dropdown-menu.left-0")
+    private edtiMembershipButton: Locator = this.page.locator(".dropdown-menu .dropdown-menu-item.undefined:first-child")
+    private membershipInput: Locator = this.page.locator(".form-container > div:nth-child(2) input ")
+    private startDateInput: Locator = this.page.locator(".form-container > div:nth-child(3) input ")
+    private membershipContainer: Locator = this.page.locator(".current-membership-name")
+    private calendarButton: Locator = this.page.locator(".fa-calendar-day")
+    private calendarArrow: Locator = this.page.locator("button .fa-arrow-right")
+    private calendarDay: Locator = this.page.locator(".react-datepicker__day.react-datepicker__day--018")
+    private membershipHistoryRow : Locator = this.page.locator(".card table .table-row.undefined:first-child")
 
     constructor(page: Page) {
         super(page);
@@ -35,6 +44,8 @@ export class MembersPage extends HomePage {
 
     name = faker.person.firstName()
     memberName = faker.person.firstName()
+    membershipPlan = "abcas"
+
     public async clickPlusSign() {
         await this.plus.click();
     }
@@ -82,7 +93,7 @@ export class MembersPage extends HomePage {
     }
 
     public async checkSaveBtn() {
-        await expect(await this.page.locator(`button[type='submit']`).isEnabled()).toBe(false)
+        await expect(await this.saveButton.isEnabled()).toBe(false)
     }
 
     public async addInvalidEmail() {
@@ -148,4 +159,32 @@ export class MembersPage extends HomePage {
         await expect(this.page.waitForSelector(`text=${selectedMember}`)).not.toBeNull();
         await new Promise(resolve => setTimeout(resolve, 5000));
     }
+
+    public async checkOptionFeature() {
+        await new Promise(resolve => setTimeout(resolve, 3000));
+        await expect(await this.optionsFeature.isVisible()).toBe(true);
+    }
+    public async clickEditOption() {
+        await new Promise(resolve => setTimeout(resolve, 3000));
+        await this.edtiMembershipButton.click();
+    }
+
+    public async addMembershipPlan() {
+       
+        await this.membershipInput.clear()
+        await this.membershipInput.type(this.membershipPlan)
+        await this.page.keyboard.press('Enter');
+    }
+
+    public async addStartDate() {
+        await this.calendarButton.click({timeout:1000})
+        await this.calendarArrow.click({timeout:1000})
+        await this.calendarDay.click({timeout:1000})
+    }
+
+    public async checkChangedMembershipPlan() {
+        await expect(this.membershipHistoryRow).toContainText(this.membershipPlan)
+    }
+
 }
+
