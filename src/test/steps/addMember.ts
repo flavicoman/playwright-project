@@ -14,12 +14,12 @@ Given('admin is logged in', async function () {
   await login.enterPass(users.pass);
   await login.clickLoginBtn();
   await admin.verifySignIn();
-  await new Promise(resolve => setTimeout(resolve, 5000));
+  await new Promise(resolve => setTimeout(resolve, 4000));
 });
 
 Given('admin navigates to the members panel', async function () {
   
-  admin.goToMembersPage();
+  await admin.goToMembersPage();
 });
 
 Given('admin clicks on the {string} button', async function (string) {

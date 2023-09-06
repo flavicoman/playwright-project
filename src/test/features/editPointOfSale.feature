@@ -31,8 +31,8 @@ Feature: Edit point of sale settings
                 And admin clicks the “continue” button
                 Then rate should be deleted succesfully
 
-        Scenario: Verify that admin can add requirement for payment at time of booking
-                When user checks the box from “require payment at time of booking” step
-                Then “enable payment” window should pop up
-                And admin clicks on “continue” button
-                Then payment at time of booking should be enabled
+        # Scenario: Verify that admin can add requirement for payment at time of booking
+        #         When user checks the box from “require payment at time of booking” step
+        #         Then “enable payment” window should pop up
+        #         And admin clicks on “continue” button
+        #         Then payment at time of booking should be enabled

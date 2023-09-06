@@ -73,7 +73,7 @@ Then('admin clicks the “continue” button', async function () {
   admin.clickContinue()
 });
 Then('rate should be deleted succesfully', async function () {
-
+  admin.checkDeletedRate()
 
 });
 

@@ -47,7 +47,7 @@ export class CustomerPage extends MembersPage {
     }
 
     public async selectCustomer(customer: string) {
-        await this.page.getByText(this.customerName).click();
+        await this.page.getByText(customer).click();
     }
 
     public async checkCustomerDetailWindow() {
@@ -72,11 +72,11 @@ export class CustomerPage extends MembersPage {
         await this.page.locator(".fa-xmark").click()
     }
 
-    public async checkAddedMembership() {
+    public async checkAddedMembership(customer:string) {
         //await expect(this.membersTab).toBeVisible();
         await this.membersTab.click();
-        await new Promise(resolve => setTimeout(resolve, 25000));
-        await expect(this.page.waitForSelector(`text=${this.customerName}`)).not.toBeNull();
+        await new Promise(resolve => setTimeout(resolve, 1000));
+        await expect(this.page.waitForSelector(`text=${customer}`)).not.toBeNull();
         await new Promise(resolve => setTimeout(resolve, 5000));
     }
 

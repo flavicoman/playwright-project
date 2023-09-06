@@ -5,7 +5,7 @@ import { MembersPage } from "../pages/MembersPage.page";
 
 let admin: MembersPage;
 
-let selectedMember: string = "Andrei Ioan"
+let selectedMember: string = "Astrid Astrid"
 
 
 Given('admin selects member\'s account', async function () {
