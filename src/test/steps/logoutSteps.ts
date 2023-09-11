@@ -22,9 +22,9 @@ When('admin clicks the dropdown arror in the top right corner', async function (
 
   When('admin clicks the logout button', async function () {
     admin.logOut()
-    admin.confirmLogOut()
+    
   });
 
   Then('admin should be succesfully logged out', async function () {
-    
+    admin.confirmLogOut()
   });
