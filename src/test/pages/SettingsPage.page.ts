@@ -1,7 +1,7 @@
 import { Page } from "@playwright/test";
 
-import { HomePage } from "./HomePage.page";
-import { Faker, faker } from "@faker-js/faker";
+import { HomePage } from "./homePage.page";
+import { faker } from "@faker-js/faker";
 import { Locator } from "@playwright/test";
 import expect from "expect";
 

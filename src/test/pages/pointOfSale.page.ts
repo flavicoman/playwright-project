@@ -3,11 +3,11 @@ import { faker } from '@faker-js/faker';
 
 const randomName = faker.person.fullName(); // Rowan Nikolaus
 const randomEmail = faker.internet.email(); // Kassandra.Haley@erich.biz
-import { HomePage } from "./HomePage.page";
+import { HomePage } from "./homePage.page";
 import generateRandomRateName from "../utils/generateRandomRateName";
 import generateRandomNumber from "../utils/generaterandomNumber";
 import { expect } from "@playwright/test";
-import generateRandomName from "../utils/generateRandomName";
+
 
 const name = faker.person.fullName();
 export class PointSales extends HomePage {

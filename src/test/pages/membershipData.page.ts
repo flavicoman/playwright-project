@@ -1,6 +1,5 @@
 import { Page, Locator } from "@playwright/test";
-import { pageFixture } from "../setup/pageFixture";
-import { HomePage } from "./HomePage.page";
+import { HomePage } from "./homePage.page";
 import generateRandomNumber from "../utils/generaterandomNumber";
 import expect from "expect";
 import generateRandomName from "../utils/generateRandomName";
@@ -21,9 +20,9 @@ export class membData extends HomePage {
     private deleteButton: Locator = this.page.locator(".dropdown-menu-item.undefined.danger")
     private deletePopUp = this.page.locator(".text-displayTwo.text-UIColors-darkAlert")
     private continueButton: Locator = this.page.locator(".standard-button.outlined-dialog.regular")
-    private settingsTab : Locator =  this.page.locator("div.small-format-item>>nth=2")
-    private membershiSettingsTab : Locator = this.page.locator(".settings-menu-item:nth-child(4)")
-    private membershipValueInput : Locator =  this.page.locator('.input')
+    private settingsTab: Locator = this.page.locator("div.small-format-item>>nth=2")
+    private membershiSettingsTab: Locator = this.page.locator(".settings-menu-item:nth-child(4)")
+    private membershipValueInput: Locator = this.page.locator('.input')
 
 
     constructor(page: Page) {
@@ -111,7 +110,7 @@ export class membData extends HomePage {
     }
 
     public async checkDeleteMPopUp() {
-        // await expect(this.deletePopUp).toBeVisible()
+        // await expect(await this.deletePopUp.toBeVisible()).toBe(true)
     }
 
     public async clickContinue() {

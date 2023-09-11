@@ -1,4 +1,4 @@
-import { MembersPage } from "./MembersPage.page";
+import { MembersPage } from "./membersPage.page";
 import { Page, Locator } from "@playwright/test";
 import { test, expect } from '@playwright/test';
 import generateRandomPhoneNumber from "../utils/generateRandomPhoneNumber";

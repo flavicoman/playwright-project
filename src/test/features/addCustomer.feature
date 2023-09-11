@@ -5,7 +5,7 @@ Feature: Add new customer
     And admin is logged in
     And admin goes to the customers section
 
-  Scenario Outline: Verify that admin can not add customer with invalid name
+  Scenario Outline: Verify that admin can not add customer with invalid names
     Given admin clicks on the "+" button
     And admin adds invalid customer firstName & lastName
     And admin adds valid customer email
@@ -19,6 +19,7 @@ Feature: Add new customer
     And admin adds valid customer lastName
     And admin adds invalid phoneNumber
     Then save button should be unavailable
+
 
   Scenario Outline: Verify that admin can add customer with valid data
     Given admin clicks on the "+" button

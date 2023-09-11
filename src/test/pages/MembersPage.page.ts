@@ -1,8 +1,6 @@
 import { Page } from "@playwright/test";
 import { Locator } from "@playwright/test";
-import { HomePage } from "./HomePage.page";
-import generateRandomName from "../utils/generateRandomName";
-import generateRandomPhoneNumber from "../utils/generateRandomPhoneNumber";
+import { HomePage } from "./homePage.page";
 import generateRandomEmail from "../utils/generateRandomEmail";
 import { expect } from "@playwright/test";
 import { faker } from "@faker-js/faker";

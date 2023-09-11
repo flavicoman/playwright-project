@@ -1,7 +1,7 @@
 import { Page } from "@playwright/test";
 import { pageFixture } from "../setup/pageFixture";
 import { Locator } from "@playwright/test";
-import { page } from "../setup/hooks";
+
 
 
 

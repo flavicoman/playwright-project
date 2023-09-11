@@ -1,8 +1,7 @@
 import { Given, When, Then } from "@cucumber/cucumber";
 import { Page, Browser } from "@playwright/test";
 import { pageFixture } from "../setup/pageFixture";
-import { Locator } from "@playwright/test";
-import { SettingsPage } from "../pages/SettingsPage.page";
+import { SettingsPage } from "../pages/settingsPage.page";
 
 let browser: Browser;
 let page: Page;

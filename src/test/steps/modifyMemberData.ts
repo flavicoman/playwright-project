@@ -1,7 +1,6 @@
 import { Given, When, Then } from "@cucumber/cucumber";
-import { LoginPage } from "../pages/Login.page";
 import { pageFixture } from "../setup/pageFixture";
-import { MembersPage } from "../pages/MembersPage.page";
+import { MembersPage } from "../pages/membersPage.page";
 
 let admin: MembersPage;
 

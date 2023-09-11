@@ -28,3 +28,10 @@ Feature: Edit general settings
     Then email box  should invalidate incorrect email
     And  save button should be disabled
 
+  Scenario Outline: Verify that admin cannot add general settings with invalid names 
+    When admin adds invalid settingsName
+    And admin adds new primaryEmail
+    And admin adds new  website
+    Then save button should be disabled
+    
+    
