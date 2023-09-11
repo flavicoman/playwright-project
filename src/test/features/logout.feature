@@ -7,6 +7,6 @@ Feature: User Authentication Test
     Scenario Outline: Verify that admin can logout
         When admin clicks the dropdown arror in the top right corner
         And logout option appears
-        When admin clicks the logout ubtton
+        When admin clicks the logout button
         Then admin should be succesfully logged out
 

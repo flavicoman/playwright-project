@@ -4,7 +4,7 @@ import { CustomerPage } from "../pages/customersPage.page";
 import { pageFixture } from "../setup/pageFixture";
 
 let admin: CustomerPage;
-let customer: string = "Ana Anaa";
+let customer: string = "Ana Puscac";
 
 
 When('admin clicks on the customers name', async function () {

@@ -19,11 +19,9 @@ Given('User enter valid username', async function () {
 
   login = new LoginPage(pageFixture.page);
   await login.enterUser(users.username)
-  await new Promise(resolve => setTimeout(resolve, 2000));
 });
 
 Given('User enter valid password', async function () {
-  await new Promise(resolve => setTimeout(resolve, 2000));
   await login.enterPass(users.pass);
 });
 
@@ -31,7 +29,7 @@ When('User click on the signIn button', async function () {
   await login.clickLoginBtn();
 });
 
-Then('Login should be success', { timeout: 90000 }, async function () {
+Then('Login should be success', async function () {
   user = new HomePage(pageFixture.page);
   await user.verifySignIn();
 });
@@ -40,11 +38,11 @@ Then('the User clicks on the arrow button', async () => {
   user.clickArrowBtn();
 });
 
-Then('the User clicks on the logout button', { timeout: 9000 }, async function () {
+Then('the User clicks on the logout button', async function () {
   user.logOut();
 });
 
-Then('the User clicks on the logout confirm button', { timeout: 90000 }, async function () {
+Then('the User clicks on the logout confirm button', async function () {
   user.confirmLogOut();
 });
 
@@ -54,17 +52,14 @@ When('User enter invalid username', async function () {
 });
 
 Then('user should not be allowed to login', async function () {
-  await new Promise(resolve => setTimeout(resolve, 2000));
   await  login.checkLoginDenial(); 
 });
 
 When('User enter invalid password', async function () {
-  await new Promise(resolve => setTimeout(resolve, 2000));
    await login.enterPass(users.invalidPassword)
 });
 
-Then('user should be notified about wrong password', async function () {
-  await new Promise(resolve => setTimeout(resolve, 3000));
+Then('user should be notified about wrong password', async function () { 
   await login.checkWrongPassNotification()
 });
 

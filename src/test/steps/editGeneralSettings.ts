@@ -85,3 +85,7 @@ When('admin adds new invalid primaryEmail', async function () {
   Then('save button should be disabled', async function () {
     admin.checkSaveButton()
   });
+
+  When('admin adds invalid settingsName', async function () {
+     await admin.addInvalidSettingsName()
+  });

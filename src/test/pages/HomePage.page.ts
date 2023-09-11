@@ -1,7 +1,7 @@
 import { Page } from "@playwright/test";
 import { pageFixture } from "../setup/pageFixture";
 import { Locator } from "@playwright/test";
-
+import { expect } from "@playwright/test";
 
 
 
@@ -12,7 +12,7 @@ export class HomePage {
     }
     public page: Page;
 
-
+    
 
 
     public async verifySignIn() {
@@ -21,21 +21,24 @@ export class HomePage {
     }
 
     public async clickArrowBtn() {
-        // const el = await this.page.locator("svg.svg-inline--fa.fa-chevron-down.fa-lg.cursor-pointer");
-        // const el = await this.page.locator(signInButton);
-       // await signInButton.click();
+      const el = await this.page.locator(".fa-lg.cursor-pointer");
+       await el.click()
+    }
+
+    public async checkLogOutOption () { 
+        await this.page.locator(".logout-dropdown").isVisible()
     }
 
     public async logOut() {
         const el = await this.page.locator("li.dropdown-menu-item.undefined");
         await el.isEnabled();
-        await new Promise(resolve => setTimeout(resolve, 10000));
-        await el.click;
+        await el.click();
     }
 
     public async confirmLogOut() {
-        const el = await this.page.locator("(//button[@type='button'])[2]");
+        const el = await this.page.locator(".outlined-dialog");
         await el.click();
+        await expect(this.page.locator(".container.unified_container")).toBeVisible({timeout:10000})
     }
 
     public async goToMembersPage() {
