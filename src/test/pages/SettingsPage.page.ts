@@ -102,7 +102,8 @@ export class SettingsPage extends HomePage {
     }
 
     public async addInvalidSettingsName() { 
-        await this.settingsNameInput.fill(" ")
+        await this.settingsNameInput.clear()
+        await this.settingsNameInput.fill("  ")
     }
 
     public async checkInvalidEmailInputBox() {

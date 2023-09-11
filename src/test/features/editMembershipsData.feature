@@ -18,7 +18,7 @@ Feature: Edit memeberships settings
           And admin adds max hours of play
           And admin adds months as expire date
           And admin selects subscriptionPlan
-          Then save button should be available
+          Then save button should be enabled
           When click on the save button
           Then New membership plan should be added
 
@@ -29,7 +29,7 @@ Feature: Edit memeberships settings
           And admin adds max hours of play
           And admin adds months as expire date
           And admin selects subscriptionPlan
-          Then save button should be available
+          Then save button should be enabled
           When click on the save button
           Then membership plan should be edited succesfully
 

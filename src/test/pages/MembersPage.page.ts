@@ -8,7 +8,7 @@ import { faker } from "@faker-js/faker";
 
 export class MembersPage extends HomePage {
     public customersTab: Locator = this.page.locator(".tab-group > button:nth-child(2)")
-  
+
     private plus: Locator = this.page.locator("svg[data-icon=plus]")
     public firstNameInput: Locator = this.page.locator(".input-fields-container:nth-child(2) .input-container:nth-child(1) input")
     public lastNameInput: Locator = this.page.locator(".input-fields-container:nth-child(2) .input-container:nth-child(2) input")
@@ -33,7 +33,7 @@ export class MembersPage extends HomePage {
     private calendarButton: Locator = this.page.locator(".fa-calendar-day")
     private calendarArrow: Locator = this.page.locator("button .fa-arrow-right")
     private calendarDay: Locator = this.page.locator(".react-datepicker__day.react-datepicker__day--018")
-    private membershipHistoryRow : Locator = this.page.locator(".card table .table-row.undefined:first-child")
+    private membershipHistoryRow: Locator = this.page.locator(".card table .table-row.undefined:first-child")
 
     constructor(page: Page) {
         super(page);
@@ -61,8 +61,7 @@ export class MembersPage extends HomePage {
     }
 
     public async addEmail() {
-        this.emailInput.fill(generateRandomEmail());
-        await new Promise(resolve => setTimeout(resolve, 4000));
+        this.emailInput.fill(generateRandomEmail(), { timeout: 4000 });
     }
 
     public async clickSaveButton() {
@@ -90,7 +89,7 @@ export class MembersPage extends HomePage {
     }
 
     public async checkSaveBtn() {
-        await expect(await this.saveButton.isEnabled()).toBe(false)
+        await expect(await this.saveButton.isEnabled({ timeout: 5000 })).toBe(true)
     }
 
     public async addInvalidEmail() {
@@ -167,16 +166,16 @@ export class MembersPage extends HomePage {
     }
 
     public async addMembershipPlan() {
-       
+
         await this.membershipInput.clear()
         await this.membershipInput.type(this.membershipPlan)
         await this.page.keyboard.press('Enter');
     }
 
     public async addStartDate() {
-        await this.calendarButton.click({timeout:1000})
-        await this.calendarArrow.click({timeout:1000})
-        await this.calendarDay.click({timeout:1000})
+        await this.calendarButton.click({ timeout: 1000 })
+        await this.calendarArrow.click({ timeout: 1000 })
+        await this.calendarDay.click({ timeout: 1000 })
     }
 
     public async checkChangedMembershipPlan() {

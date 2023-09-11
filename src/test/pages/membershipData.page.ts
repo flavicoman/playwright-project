@@ -23,6 +23,7 @@ export class membData extends HomePage {
     private settingsTab: Locator = this.page.locator("div.small-format-item>>nth=2")
     private membershiSettingsTab: Locator = this.page.locator(".settings-menu-item:nth-child(4)")
     private membershipValueInput: Locator = this.page.locator('.input')
+    private saveMembershipDataButton: Locator = this.page.locator(".standard-button:nth-child(2)")
 
 
     constructor(page: Page) {
@@ -41,13 +42,11 @@ export class membData extends HomePage {
     }
     public async addMembershipsValue() {
         await this.membershipValueInput.clear()
-        await new Promise(resolve => setTimeout(resolve, 2000));
         await this.membershipValueInput.type(this.value)
     }
 
     public async checkAddedValue() {
         const inputValue = await this.membershipValueInput.inputValue();
-        await new Promise(resolve => setTimeout(resolve, 4000));
         await expect(inputValue).toContain(this.value);
     }
 
@@ -61,14 +60,12 @@ export class membData extends HomePage {
 
     public async selectBookingGroup() {
         await this.dropDownBGroup.click();
-        await new Promise(resolve => setTimeout(resolve, 1000));
         await this.bookingGroupInput.fill("Public")
         await this.page.keyboard.press('Enter');
     }
 
     public async addMaxHours() {
         await this.expireHoursCheckbox.check()
-        await new Promise(resolve => setTimeout(resolve, 1000));
         await this.maxHoursOfPlayInput.type(this.value)
     }
 
@@ -81,30 +78,33 @@ export class membData extends HomePage {
 
     public async selectSubscriptionPlan() {
         await this.dropdownSubPlan.click()
-        await this.subscriptionPlanInput.type("Gold weekly");
+        await this.subscriptionPlanInput.type("Gold weekly", { timeout: 4000 });
         await this.page.keyboard.press('Enter');
     }
 
     public async checkAddedMembershipPlan() {
         const tbodyText: string = await this.page.locator('tbody').textContent();
+        await new Promise(resolve => setTimeout(resolve, 4000));
         await expect(tbodyText).toContain(this.name);
     }
 
     public async clickSavebutton() {
-        await this.saveButton.click()
+        await this.saveButton.click({ timeout: 10000 })
+    }
+
+    public async checkSaveMembershipDataButton() {
+        await this.saveMembershipDataButton.isEnabled()
     }
 
     public async selectEditOption() {
         await this.cursorPointer.click()
-        await new Promise(resolve => setTimeout(resolve, 2000));
         await this.editOption.click();
     }
 
     public async selectDotsSymbol() {
         await this.cursorPointer.click()
-        await new Promise(resolve => setTimeout(resolve, 2000));
-    }
 
+    }
     public async selectDeleteOption() {
         await this.deleteButton.click({ timeout: 3000 });
     }

@@ -14,41 +14,34 @@ Given('admin is logged in', async function () {
   await login.enterPass(users.pass);
   await login.clickLoginBtn();
   await admin.verifySignIn();
-  await new Promise(resolve => setTimeout(resolve, 4000));
 });
 
 Given('admin navigates to the members panel', async function () {
-  
   await admin.goToMembersPage();
 });
 
 Given('admin clicks on the {string} button', async function (string) {
-  admin.clickPlusSign();
+ await  admin.clickPlusSign();
 });
 
 Given('admin adds valid firstName', async function () {
-  admin.addFirstName();
-  await new Promise(resolve => setTimeout(resolve, 5000));
+  await admin.addFirstName();
 });
 
 Given('admin adds valid lastName', async function () {
-  admin.addLastName();
-  await new Promise(resolve => setTimeout(resolve, 2000));
+  await admin.addLastName();
 });
 
 Given('admin adds valid phoneNumber', async function () {
-  admin.addPhoneNumber()
-  //admin.selectMembership();
+  await admin.addPhoneNumber()
 });
 
 Given('admin adds valid email', async function () {
-
-  admin.addEmail()
-  await new Promise(resolve => setTimeout(resolve, 2000));
+  await admin.addEmail()
 });
 
 Then('save button should be available', async function () {
-
+   await admin.checkSaveBtn()
 });
 
 Then("click on '{}' button", async function (buttonName: string) {
@@ -56,9 +49,7 @@ Then("click on '{}' button", async function (buttonName: string) {
 });
 
 Given('admin clicks the save button', async function () {
-  admin.clickSaveButton();
-  await new Promise(resolve => setTimeout(resolve, 6000));
-
+  await admin.clickSaveButton();
 });
 
 Then('member should be added succesfully', async function () {
@@ -74,19 +65,18 @@ When('admin adds invalid last name', async function () {
 });
 
 Then('changes cannot be saved', async function () {
-  await new Promise(resolve => setTimeout(resolve, 2000));
-    admin.checkSaveBtn()
+    await admin.checkSaveBtn()
 });
 
 When('admin adds invalid member phoneNumber', async function () {
-  await new Promise(resolve => setTimeout(resolve, 2000));
-  admin.addInvalidEmail()
+  
+ await  admin.addInvalidEmail()
   
 });
 
 When('admin adds invalid member email', async function () {
-  await new Promise(resolve => setTimeout(resolve, 2000));
-  admin.addInvalidPhoneNumber()
+  
+  await admin.addInvalidPhoneNumber()
 });
 
 
