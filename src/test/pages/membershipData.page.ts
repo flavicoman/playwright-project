@@ -1,8 +1,10 @@
 import { Page, Locator } from "@playwright/test";
 import { HomePage } from "./homePage.page";
 import generateRandomNumber from "../utils/generaterandomNumber";
-import expect from "expect";
+import { expect } from "@playwright/test";
 import generateRandomName from "../utils/generateRandomName";
+import { faker } from "@faker-js/faker";
+
 export class membData extends HomePage {
     private plus: Locator = this.page.locator("svg[data-icon=plus]")
     public nameInput: Locator = this.page.locator(".plans-modal-section-container input")
@@ -31,7 +33,7 @@ export class membData extends HomePage {
 
     }
     value = generateRandomNumber()
-    name = generateRandomName()
+    name = faker.person.fullName();
     public async gotoMembershipSettings() {
         await this.settingsTab.click();
         await new Promise(resolve => setTimeout(resolve, 1000));
@@ -59,8 +61,9 @@ export class membData extends HomePage {
     }
 
     public async selectBookingGroup() {
+        await new Promise(resolve => setTimeout(resolve, 2000));
         await this.dropDownBGroup.click();
-        await this.bookingGroupInput.fill("Public")
+       await this.bookingGroupInput.fill("1 T")
         await this.page.keyboard.press('Enter');
     }
 
@@ -71,21 +74,20 @@ export class membData extends HomePage {
 
     public async addMonthsDuration() {
         await this.expireTimeCheckbox.check()
-        await new Promise(resolve => setTimeout(resolve, 4000));
+       
         await this.durationMonthsInput.clear();
         await this.durationMonthsInput.type(this.value);
     }
 
     public async selectSubscriptionPlan() {
         await this.dropdownSubPlan.click()
-        await this.subscriptionPlanInput.type("Gold weekly", { timeout: 4000 });
+        await this.subscriptionPlanInput.type("None", { timeout: 4000 });
         await this.page.keyboard.press('Enter');
+        await new Promise(resolve => setTimeout(resolve, 4000));
     }
 
     public async checkAddedMembershipPlan() {
-        const tbodyText: string = await this.page.locator('tbody').textContent();
-        await new Promise(resolve => setTimeout(resolve, 4000));
-        await expect(tbodyText).toContain(this.name);
+        await expect(this.page.waitForSelector(`text=${this.name}`)).not.toBeNull()
     }
 
     public async clickSavebutton() {

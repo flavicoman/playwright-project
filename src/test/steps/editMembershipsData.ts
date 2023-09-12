@@ -53,6 +53,7 @@ Then('save button should be enabled', async function () {
 });
 
 Then('New membership plan should be added', async function () {
+    await new Promise(resolve => setTimeout(resolve, 2000));
     await admin.checkAddedMembershipPlan()
 });
 
