@@ -4,7 +4,7 @@ import { MembersPage } from "../pages/membersPage.page";
 
 let admin: MembersPage;
 
-let selectedMember: string = "Alex Rookie"
+let selectedMember: string = "antal antal"
 
 
 Given('admin selects member\'s account', async function () {
@@ -14,22 +14,22 @@ Given('admin selects member\'s account', async function () {
 });
 
 Given('member\'s personal file pops up', async function () {
-    await new Promise(resolve => setTimeout(resolve, 2000));
+   // await new Promise(resolve => setTimeout(resolve, 2000));
     await admin.checkMembersCard()
 });
 
 Given('admin inserts new  firstName', async function () {
-    await new Promise(resolve => setTimeout(resolve, 2000));
+   // await new Promise(resolve => setTimeout(resolve, 2000));
     await admin.addAccountName()
 });
 
 Given('admin inserts new lastName', async function () {
-    await new Promise(resolve => setTimeout(resolve, 2000));
+    //await new Promise(resolve => setTimeout(resolve, 2000));
     await admin.addAccountLastName()
 });
 
 Given('admin insers new phoneNumber', async function () {
-    await new Promise(resolve => setTimeout(resolve, 2000));
+    //await new Promise(resolve => setTimeout(resolve, 2000));
     await admin.addAccountPhoneNumber()
 });
 
@@ -43,22 +43,22 @@ When('admin clicks on the Membership tab', async function () {
 
 When('admin clicks the three dots on the right', async function () {
     await admin.clickTheThreeDots()
-    await new Promise(resolve => setTimeout(resolve, 2000));
+    //await new Promise(resolve => setTimeout(resolve, 2000));
 });
 
 Then('deactivate membership button should appear', async function () {
-    await new Promise(resolve => setTimeout(resolve, 2000));
+    //await new Promise(resolve => setTimeout(resolve, 2000));
     await admin.checkDeactivateButton()
 });
 
 When('admin selects deactivate membership option', async function () {
     await admin.clickDeactivateOption()
-    await new Promise(resolve => setTimeout(resolve, 2000));
+   // await new Promise(resolve => setTimeout(resolve, 2000));
 });
 
 When('admin clicks on the deactivate button', async function () {
     await admin.clickDeactivateButton()
-    await new Promise(resolve => setTimeout(resolve, 3000));
+   // await new Promise(resolve => setTimeout(resolve, 3000));
 });
 
 Then('member should be moved back to customer section', async function () {
@@ -77,13 +77,13 @@ Then('the membership options feature should pop-up', async function () {
 
   
   When('admin selects date', async function () {
-    await new Promise(resolve => setTimeout(resolve, 3000)); 
+   // await new Promise(resolve => setTimeout(resolve, 3000)); 
    await admin.addStartDate()
   });
 
   When('admin selects membershipPlan', async function () {
    await admin.addMembershipPlan()
-   await new Promise(resolve => setTimeout(resolve, 3000));
+   //await new Promise(resolve => setTimeout(resolve, 3000));
   });
 
   Then('user\'s membership should be edited succesfully', async function () {
