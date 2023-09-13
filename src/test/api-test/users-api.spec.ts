@@ -173,9 +173,6 @@ test.describe("Users page POST methods", () => {
                         console.log(await response.json());
                 })
         })
-
-
-
 })
 
 test.describe("Users page PUT methods", () => {
@@ -193,7 +190,6 @@ test.describe("Users page PUT methods", () => {
                         console.log(await response.json());
                 })
         })
-
         test('put users/{id}/external-subscription', async ({ request }) => {
                 await test.step("put users/external-subscription", async () => {
                         const response = await request.put('/users/8b35728e-9fb3-48c8-9e59-2c35984dc939/external-subscription', {
@@ -205,7 +201,6 @@ test.describe("Users page PUT methods", () => {
                         console.log(await response.json());
                 })
         })
-
         test('put users/{id}/deactivate', async ({ request }) => {
                 await test.step("put users/deactivate", async () => {
                         const response = await request.put('/users/8b35728e-9fb3-48c8-9e59-2c35984dc939/deactivate', {
@@ -229,4 +224,3 @@ test.describe("Users page DELETE method", () => {
                 })
         })
 })
-
