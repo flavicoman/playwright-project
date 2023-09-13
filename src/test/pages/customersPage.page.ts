@@ -78,7 +78,6 @@ export class CustomerPage extends MembersPage {
     }
 
     public async checkAddedMembership(customer:string) {
-        //await expect(this.membersTab).toBeVisible();
         await this.membersTab.click();
         await new Promise(resolve => setTimeout(resolve, 1000));
         await expect(this.page.waitForSelector(`text=${customer}`)).not.toBeNull();

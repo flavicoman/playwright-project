@@ -8,30 +8,24 @@ export class LoginPage {
     }
 
     public async enterUser(email: string) {
-        const ele = await this.page.locator("input[type='email']");
-        await ele?.type(email);
+        await this.page.locator("input[type='email']")?.type(email);
     }
 
     public async enterPass(pass: string) {
-        const ele = await this.page.locator("input[type='password']");
-        await ele?.type(pass);
+        await this.page.locator("input[type='password']")?.type(pass);
     }
 
     public async clickLoginBtn() {
-        const ele = await this.page.locator("button[type='submit']");
-        await ele.click();
+        await this.page.locator("button[type='submit']").click();
     }
 
     public async checkLoginDenial() {
-      
+
         await expect(await this.page.locator(".entry-item:first-child .error").isVisible({ timeout: 5000 })).toBe(true)
     }
-    
+
     public async checkWrongPassNotification() {
-       
-     
         await expect(this.page.getByText('.error.pageLevel')).toBeVisible()
-      
     }
 
     public async clickArrowButton() {
@@ -45,12 +39,4 @@ export class LoginPage {
     public async clickLogoutButton() {
         await this.page.locator(".dropdown-menu-item").click()
     }
-    
-
-
-
-
-
-
-
 }
