@@ -45,7 +45,7 @@ test.describe("Users page GET methods ", () => {
 
         test('get users/{id}', async ({ request }) => {
                 await test.step("get users's id", async () => {
-                        const response = await request.get('/users/8b35728e-9fb3-48c8-9e59-2c35984dc939');
+                        const response = await request.get('/users/09fcaa5b-49bb-4ee9-8951-0e858f84c2ad');
                         expect(response).toBeOK();
                         console.log(await response.json());
                 })
@@ -55,7 +55,7 @@ test.describe("Users page GET methods ", () => {
 
         test('get users/{id}/booking-settings', async ({ request }) => {
                 await test.step("get users's id", async () => {
-                        const response = await request.get('/users/8b35728e-9fb3-48c8-9e59-2c35984dc939/booking-settings');
+                        const response = await request.get('/users/09fcaa5b-49bb-4ee9-8951-0e858f84c2ad/booking-settings');
                         expect(response).toBeOK();
                         console.log(await response.json());
                 })
@@ -63,7 +63,7 @@ test.describe("Users page GET methods ", () => {
 
         test('get users/{id}/next-reservation', async ({ request }) => {
                 await test.step("get users's reservation", async () => {
-                        const response = await request.get('/users/8b35728e-9fb3-48c8-9e59-2c35984dc939/next-reservation');
+                        const response = await request.get('/users/09fcaa5b-49bb-4ee9-8951-0e858f84c2ad/next-reservation');
                         expect(response).toBeOK();
                         console.log(await response.json());
                 })
@@ -71,7 +71,7 @@ test.describe("Users page GET methods ", () => {
 
         test('get users/{id}/booking-status', async ({ request }) => {
                 await test.step("get users's booking-status", async () => {
-                        const response = await request.get('/users/8b35728e-9fb3-48c8-9e59-2c35984dc939/booking-status');
+                        const response = await request.get('/users/09fcaa5b-49bb-4ee9-8951-0e858f84c2ad/booking-status');
                         expect(response).toBeOK();
                         console.log(await response.json());
                 })
@@ -79,7 +79,7 @@ test.describe("Users page GET methods ", () => {
 
         test('get users/{id}/memberships', async ({ request }) => {
                 await test.step("get users's memberships", async () => {
-                        const response = await request.get('/users/8b35728e-9fb3-48c8-9e59-2c35984dc939/memberships');
+                        const response = await request.get('/users/09fcaa5b-49bb-4ee9-8951-0e858f84c2ad/memberships');
                         expect(response).toBeOK();
                         console.log(await response.json());
                 })
@@ -87,7 +87,7 @@ test.describe("Users page GET methods ", () => {
 
         test('get /users/{id}/external-subscriptions', async ({ request }) => {
                 await test.step("get users's external-subscriptions", async () => {
-                        const response = await request.get('/users/8b35728e-9fb3-48c8-9e59-2c35984dc939/external-subscriptions');
+                        const response = await request.get('/users/09fcaa5b-49bb-4ee9-8951-0e858f84c2ad/external-subscriptions');
                         expect(response).toBeOK();
                         console.log(await response.json());
                 })
