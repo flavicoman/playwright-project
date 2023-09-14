@@ -25,7 +25,7 @@ export class LoginPage {
     }
 
     public async checkWrongPassNotification() {
-        await expect(this.page.getByText('.error.pageLevel')).toBeVisible()
+        await expect(this.page.locator('.error.pageLevel')).toBeVisible({ timeout: 15000 })
     }
 
     public async clickArrowButton() {
@@ -37,6 +37,6 @@ export class LoginPage {
     }
 
     public async clickLogoutButton() {
-        await this.page.locator(".dropdown-menu-item").click()
+        await this.page.locator(".dropdown-menu-item").click({ timeout: 5000 })
     }
 }

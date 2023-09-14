@@ -10,6 +10,8 @@ export class HomePage {
     }
     public page: Page;
 
+
+
     public async verifySignIn() {
         await pageFixture.page.waitForSelector("div.header-container", { timeout: 10000 }); // Increase timeout to 10 seconds
         await new Promise(resolve => setTimeout(resolve, 2000));

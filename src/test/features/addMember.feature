@@ -11,7 +11,7 @@ Feature: Add Member
       And admin adds valid lastName
       And admin adds valid email
       And admin adds valid phoneNumber
-      Then save button should be available
+      Then save button for new member should be available
       And admin clicks the save button
       Then member should be added succesfully
 

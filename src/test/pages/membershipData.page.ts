@@ -95,7 +95,7 @@ export class membData extends HomePage {
     }
 
     public async checkSaveMembershipDataButton() {
-        await this.saveMembershipDataButton.isEnabled()
+        await expect(this.saveMembershipDataButton).toBeEnabled()
     }
 
     public async selectEditOption() {
@@ -112,7 +112,7 @@ export class membData extends HomePage {
     }
 
     public async checkDeleteMPopUp() {
-        // await expect(await this.deletePopUp.toBeVisible()).toBe(true)
+         await expect(await this.deletePopUp).toBeVisible()
     }
 
     public async clickContinue() {

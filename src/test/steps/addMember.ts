@@ -33,6 +33,7 @@ Given('admin adds valid lastName', async function () {
 });
 
 Given('admin adds valid phoneNumber', async function () {
+  setTimeout: 4000
   await admin.addPhoneNumber()
 });
 
@@ -42,6 +43,10 @@ Given('admin adds valid email', async function () {
 
 Then('save button should be available', async function () {
    await admin.checkSaveBtn()
+});
+
+Then('save button for new member should be available', async function () {
+  await admin.checkSaveButtonIsAvailable()
 });
 
 Then("click on '{}' button", async function (buttonName: string) {
@@ -65,7 +70,7 @@ When('admin adds invalid last name', async function () {
 });
 
 Then('changes cannot be saved', async function () {
-    await admin.checkSaveBtn()
+    await admin.checkSaveBtnIsDisabled()
 });
 
 When('admin adds invalid member phoneNumber', async function () {

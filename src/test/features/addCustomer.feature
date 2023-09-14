@@ -12,14 +12,12 @@ Feature: Add new customer
     And admin adds valid customer phoneNumber
     Then save button should be unavailable
 
-
   Scenario Outline: Verify that admin can not add customer with invalid phone number
     Given admin clicks on the "+" button
     And admin adds valid customer firstName
     And admin adds valid customer lastName
     And admin adds invalid phoneNumber
     Then save button should be unavailable
-
 
   Scenario Outline: Verify that admin can add customer with valid data
     Given admin clicks on the "+" button

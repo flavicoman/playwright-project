@@ -4,7 +4,7 @@ import { MembersPage } from "../pages/membersPage.page";
 
 let admin: MembersPage;
 
-let selectedMember: string = "antal antal"
+let selectedMember: string = "antonov antonov"
 
 Given('admin selects member\'s account', async function () {
     admin = new MembersPage(pageFixture.page)
@@ -73,5 +73,5 @@ Then('the membership options feature should pop-up', async function () {
   });
 
   Then('user\'s membership should be edited succesfully', async function () {
-     admin.checkChangedMembershipPlan()
+    await  admin.checkChangedMembershipPlan()
   });

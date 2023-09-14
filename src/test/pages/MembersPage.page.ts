@@ -16,6 +16,7 @@ export class MembersPage extends HomePage {
     public emailInput: Locator = this.page.locator(".input-fields-container:nth-child(4) .input-container:nth-child(1) input ");
     public saveButton: Locator = this.page.locator('button', { hasText: 'Save' })
     private membershipSelector: Locator = this.page.locator("div.dropdown-arrow.css-1xc3v61-indicatorContainer")
+    private newMembersaveButton : Locator = this.page.locator(".new-member-top-container button")
 
     private accountNameInput: Locator = this.page.locator(".account-container > div:nth-child(2) input")
     private accountLastNameInput: Locator = this.page.locator(".account-container > div:nth-child(3) input")
@@ -61,7 +62,13 @@ export class MembersPage extends HomePage {
     }
 
     public async addEmail() {
-        this.emailInput.fill(generateRandomEmail(), { timeout: 4000 });
+        this.emailInput.fill(generateRandomEmail());
+        await new Promise(resolve => setTimeout(resolve, 3000));
+      
+    }
+
+    public async checkSaveButtonIsAvailable() {
+        await expect(this.newMembersaveButton).toBeEnabled()
     }
 
     public async clickSaveButton() {
@@ -89,7 +96,11 @@ export class MembersPage extends HomePage {
     }
 
     public async checkSaveBtn() {
-        await expect(await this.saveButton.isEnabled({ timeout: 5000 })).toBe(true)
+        await expect(await this.saveButton).toBeEnabled();
+    }
+
+    public async checkSaveBtnIsDisabled() {
+        await expect(await this.saveButton).toBeDisabled();
     }
 
     public async addInvalidEmail() {

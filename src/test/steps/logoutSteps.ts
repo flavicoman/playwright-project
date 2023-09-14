@@ -4,12 +4,6 @@ import { pageFixture } from "../setup/pageFixture";
 
 let admin: HomePage
 
-
-
-
-
-
-
 When('admin clicks the dropdown arror in the top right corner', async function () {
    admin = new HomePage(pageFixture.page);
    admin.clickArrowBtn()
