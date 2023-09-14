@@ -279,20 +279,20 @@ test.describe("Service Points PUT methods", () => {
 })
 
 test.describe("Service Points DELETE method", () => {
-    // test('Verify that API can put data in a rate at service points settings ', async ({ request }) => {
-    //     await test.step("put servicepoints rate by id", async () => {
-    //         const response = await request.delete('/servicePointsSettings/2bc88bac-34b9-43b3-bfb3-d260fad6d941/rates/f175ddf1-32d9-4f68-9022-436beb1eee1d');
-    //         expect(response).toBeOK()
-    //         console.log(await response.json())
-    //     })
-    // })
+    test('Verify that API can put data in a rate at service points settings ', async ({ request }) => {
+        await test.step("put servicepoints rate by id", async () => {
+            const response = await request.delete('/servicePointsSettings/2bc88bac-34b9-43b3-bfb3-d260fad6d941/rates/f175ddf1-32d9-4f68-9022-436beb1eee1d');
+            expect(response).toBeOK()
+            console.log(await response.json())
+        })
+    })
 
-    // test('Verify that API can delete service points by id ', async ({ request }) => {
-    //     await test.step("put servicepoints name", async () => {
-    //         const response = await request.delete('/servicePoints/eccdad24-a18b-4090-87cc-43720483540f');
-    //         expect(response).toBeOK()
-    //         console.log(await response.json())
-    //     })
-    // })
+    test('Verify that API can delete service points by id ', async ({ request }) => {
+        await test.step("put servicepoints name", async () => {
+            const response = await request.delete('/servicePoints/eccdad24-a18b-4090-87cc-43720483540f');
+            expect(response).toBeOK()
+            console.log(await response.json())
+        })
+    })
 
 })
