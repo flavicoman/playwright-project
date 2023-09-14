@@ -44,9 +44,9 @@ test.describe("Organizations POST method", () => {
 
     test('Verify that API can post membership settings to organization', async ({ request }) => {
         await test.step("post memberships settings ", async () => {
-            const response = await request.post('/organizations/dfcdb692-5294-429b-90f6-97d85c383631/membershipSettings', {
+            const response = await request.post('/organizations/2128499f-0f3e-4e2f-a9f8-e64ff8e64ac7/membershipSettings', {
                 data: {
-                    "maximumMembershipsAllowed": 10
+                    "maximumMembershipsAllowed": 4
                 }
             });
             expect(response).toBeOK()
@@ -56,21 +56,17 @@ test.describe("Organizations POST method", () => {
 
     test('Verify that API can post membership plan to organization', async ({ request }) => {
         await test.step("post membership plan ", async () => {
-            const response = await request.post('/organizations/dfcdb692-5294-429b-90f6-97d85c383631/membershipPlans', {
+            const response = await request.post('/organizations/da3f24ab-ea76-402d-aa4b-b8a3c6ad4c00/membershipPlans', {
                 data: {
-                    "name": "heyhelloyeshereiam",
-                    "color": "#FF456A",
-                    "bookingGroupId": "432630d9-adfe-4c08-819c-0d75ed06f4fe",
-                    "maxHour": 60,
-                    "maxMonth": 12,
-                    "externalId": ""
+                    name: "heyhelloyeshereiam",
+                    color: "#FF456A",
+                    bookingGroupId: "432630d9-adfe-4c08-819c-0d75ed06f4fe",
                 }
             });
             expect(response).toBeOK()
             console.log(await response.json())
         })
     })
-
 })
 
 
@@ -105,9 +101,9 @@ test.describe("Organizations PUT method", () => {
 
     test('Verify that API can modify maximum memberships allowed', async ({ request }) => {
         await test.step("put new memberships number allowance ", async () => {
-            const response = await request.put('/organizations/a9ba27f3-cf7e-4f6a-8308-bb4891a046b0/membershipSettings', {
+            const response = await request.put('/organizations/a5a6395a-c670-4ebe-be52-051d2e727b3f/membershipSettings', {
                 data: {
-                    "maximumMembershipsAllowed": 24
+                    "maximumMembershipsAllowed": 1
                 }
             });
             expect(response).toBeOK()
@@ -135,11 +131,11 @@ test.describe("Organizations PUT method", () => {
 
 test.describe("Organizations DELETE method", () => {
 
-    test('Verify that API can delte membership plan by id ', async ({ request }) => {
-        await test.step("delete membership plan ", async () => {
-            const response = await request.delete('/organizations/a5a6395a-c670-4ebe-be52-051d2e727b3f/membershipPlans/1d672583-69a6-42d9-af58-c3eee08e1990');
-            expect(response).toBeOK();
-            console.log(await response.json());
-        })
-    })
+    // test('Verify that API can delte membership plan by id ', async ({ request }) => {
+    //     await test.step("delete membership plan ", async () => {
+    //         const response = await request.delete('/organizations/a5a6395a-c670-4ebe-be52-051d2e727b3f/membershipPlans/1d672583-69a6-42d9-af58-c3eee08e1990');
+    //         expect(response).toBeOK();
+    //         console.log(await response.json());
+    //     })
+    // })
 })

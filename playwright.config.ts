@@ -7,7 +7,7 @@ const config: PlaywrightTestConfig = {
   expect: {
     timeout: 10 * 1000,
   },
-  testDir: "src/test/api-test/users",
+  testDir: "src/test/api-test/bookings",
   use: {
     actionTimeout: 7000,
     baseURL: 'https://tq-golf-dev-api.azurewebsites.net',

@@ -4,7 +4,7 @@ import { MembersPage } from "../pages/membersPage.page";
 
 let admin: MembersPage;
 
-let selectedMember: string = "antonov antonov"
+let selectedMember: string = "arnie arnie"
 
 Given('admin selects member\'s account', async function () {
     admin = new MembersPage(pageFixture.page)

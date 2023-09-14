@@ -20,12 +20,12 @@ test.describe("Users page GET methods ", () => {
                         const response = await request.get('/users/members', {
                                 params: {
                                         "SearchValue": "",
-                                        "Page.Number": "1",
+                                        "Page.Number": "2",
                                         "Page.Size": "20"
                                 }
                         });
                         expect(response).toBeOK()
-                        await response.json();
+                       console.log( await response.json());
                 })
         })
 
@@ -63,7 +63,7 @@ test.describe("Users page GET methods ", () => {
 
         test('get users/{id}/next-reservation', async ({ request }) => {
                 await test.step("get users's reservation", async () => {
-                        const response = await request.get('/users/09fcaa5b-49bb-4ee9-8951-0e858f84c2ad/next-reservation');
+                        const response = await request.get('/users/6ddef0e7-229f-49d8-83e8-ae4f8998afa/next-reservation');
                         expect(response).toBeOK();
                         console.log(await response.json());
                 })
@@ -87,7 +87,7 @@ test.describe("Users page GET methods ", () => {
 
         test('get /users/{id}/external-subscriptions', async ({ request }) => {
                 await test.step("get users's external-subscriptions", async () => {
-                        const response = await request.get('/users/09fcaa5b-49bb-4ee9-8951-0e858f84c2ad/external-subscriptions');
+                        const response = await request.get('/users/6ddef0e7-229f-49d8-83e8-ae4f8998afa/external-subscriptions');
                         expect(response).toBeOK();
                         console.log(await response.json());
                 })
@@ -163,8 +163,8 @@ test.describe("Users page POST methods", () => {
 
 
                                 data: JSON.stringify({
-                                        "firstName": "alonsoiano",
-                                        "lastName": "italianodsss",
+                                        "firstName": "alonsoiaretno",
+                                        "lastName": "italianeteodsss",
                                         "email": "americano@italisssano",
                                         "phoneNumber": "29928834224",
                                 })
@@ -203,7 +203,7 @@ test.describe("Users page PUT methods", () => {
         })
         test('put users/{id}/deactivate', async ({ request }) => {
                 await test.step("put users/deactivate", async () => {
-                        const response = await request.put('/users/8b35728e-9fb3-48c8-9e59-2c35984dc939/deactivate', {
+                        const response = await request.put('/users/6ddef0e7-229f-49d8-83e8-ae4f8998afa/deactivate', {
                                 data: {
                                         "date": "2023-09-15"
                                 }
@@ -218,7 +218,7 @@ test.describe("Users page DELETE method", () => {
 
         test('delete /users/{id}/stats', async ({ request }) => {
                 await test.step("delete users's stats", async () => {
-                        const response = await request.delete('/users/8b35728e-9fb3-48c8-9e59-2c35984dc939');
+                        const response = await request.delete('/users/6ddef0e7-229f-49d8-83e8-ae4f8998afa');
                         expect(response).toBeOK();
                         console.log(await response.json());
                 })
