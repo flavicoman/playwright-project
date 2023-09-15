@@ -16,7 +16,7 @@ export class MembersPage extends HomePage {
     public emailInput: Locator = this.page.locator(".input-fields-container:nth-child(4) .input-container:nth-child(1) input ");
     public saveButton: Locator = this.page.locator('button', { hasText: 'Save' })
     private membershipSelector: Locator = this.page.locator("div.dropdown-arrow.css-1xc3v61-indicatorContainer")
-    private newMembersaveButton : Locator = this.page.locator(".new-member-top-container button")
+    private newMembersaveButton: Locator = this.page.locator(".new-member-top-container button")
 
     private accountNameInput: Locator = this.page.locator(".account-container > div:nth-child(2) input")
     private accountLastNameInput: Locator = this.page.locator(".account-container > div:nth-child(3) input")
@@ -30,12 +30,16 @@ export class MembersPage extends HomePage {
     private optionsFeature: Locator = this.page.locator(".dropdown-menu.left-0")
     private edtiMembershipButton: Locator = this.page.locator(".dropdown-menu .dropdown-menu-item.undefined:first-child")
     private membershipInput: Locator = this.page.locator(".form-container > div:nth-child(2) input ")
+    private mmbrshipINpt: Locator = this.page.locator(".select.mb-11 input")
     private membershipContainer: Locator = this.page.locator(".current-membership-name")
     private calendarButton: Locator = this.page.locator(".fa-calendar-day")
     private calendarArrow: Locator = this.page.locator("button .fa-arrow-right")
     private calendarDay: Locator = this.page.locator(".react-datepicker__day.react-datepicker__day--018")
     private membershipHistoryRow: Locator = this.page.locator(".card table .table-row.undefined:first-child")
+    private membershipPlanSelector: Locator = this.page.locator(".text-displayFive:first-child")
 
+
+    private desiredMembership = "asd"
     constructor(page: Page) {
         super(page);
     }
@@ -63,8 +67,8 @@ export class MembersPage extends HomePage {
 
     public async addEmail() {
         this.emailInput.fill(generateRandomEmail());
-        await new Promise(resolve => setTimeout(resolve, 3000));
-      
+        await new Promise(resolve => setTimeout(resolve, 1000));
+
     }
 
     public async checkSaveButtonIsAvailable() {
@@ -73,10 +77,9 @@ export class MembersPage extends HomePage {
 
     public async clickSaveButton() {
         await this.saveButton.click();
-        await new Promise(resolve => setTimeout(resolve, 4000));
+        await new Promise(resolve => setTimeout(resolve, 1000));
     }
-    public async addDate() {
-    }
+
     public async selectMembership() {
         this.membershipSelector.click()
     }
@@ -184,14 +187,24 @@ export class MembersPage extends HomePage {
     }
 
     public async addStartDate() {
-        await this.calendarButton.click({ timeout: 1000 })
-        await this.calendarArrow.click({ timeout: 1000 })
-        await this.calendarDay.click({ timeout: 1000 })
+        //await new Promise(resolve => setTimeout(resolve, 1000));
+        await this.calendarButton.click({ timeout: 5000 })
+        //await new Promise(resolve => setTimeout(resolve, 1000));
+        await this.calendarArrow.click({ timeout: 5000 })
+        // await new Promise(resolve => setTimeout(resolve, 1000));
+        await this.calendarDay.click({ timeout: 5000 })
     }
 
     public async checkChangedMembershipPlan() {
         await expect(this.membershipHistoryRow).toContainText(this.membershipPlan)
     }
+
+    public async selectDesiredMembership() {
+        await this.membershipPlanSelector.click()
+        await this.mmbrshipINpt.fill(this.desiredMembership);
+        await this.membershipPlanSelector.click()
+    }
+
 
 }
 

@@ -69,7 +69,6 @@ test.describe("Organizations POST method", () => {
     })
 })
 
-
 test.describe("Organizations PUT method", () => {
     test('Verify that API can put new organizations settings', async ({ request }) => {
         await test.step("put new organizations settings ", async () => {

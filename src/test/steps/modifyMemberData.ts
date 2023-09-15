@@ -43,7 +43,7 @@ When('admin clicks the three dots on the right', async function () {
 Then('deactivate membership button should appear', async function () { 
     await admin.checkDeactivateButton()
 });
-
+1
 When('admin selects deactivate membership option', async function () {
     await admin.clickDeactivateOption()
 });

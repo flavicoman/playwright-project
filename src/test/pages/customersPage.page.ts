@@ -83,8 +83,6 @@ export class CustomerPage extends MembersPage {
         await expect(this.page.waitForSelector(`text=${customer}`)).not.toBeNull();
         await new Promise(resolve => setTimeout(resolve, 5000));
     }
-
-
 }
 
 

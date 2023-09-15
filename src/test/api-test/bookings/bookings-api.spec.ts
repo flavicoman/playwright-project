@@ -77,3 +77,11 @@ test.describe('bookings page POST methods', () => {
 
    })
 })
+test.describe('bookings page DELETE methods', () => { 
+//     test('Verify that API can delete booking group by id ', async ({request}) => {
+            
+//         const response = await request.delete('/bookingGroups/2253b623-12cd-4f0a-bf62-09d0556f7c34')
+//         expect(response).toBeOK()
+      
+//    })
+ })

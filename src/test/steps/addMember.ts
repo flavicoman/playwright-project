@@ -45,6 +45,8 @@ Then('save button should be available', async function () {
    await admin.checkSaveBtn()
 });
 
+
+
 Then('save button for new member should be available', async function () {
   await admin.checkSaveButtonIsAvailable()
 });
@@ -71,6 +73,17 @@ When('admin adds invalid last name', async function () {
 
 Then('changes cannot be saved', async function () {
     await admin.checkSaveBtnIsDisabled()
+});
+
+
+When('admin adds desired membership', async function () {
+   await admin.selectDesiredMembership()
+  
+});
+
+When('admin selects desired date', async function () {
+  await admin.addStartDate()
+ 
 });
 
 When('admin adds invalid member phoneNumber', async function () {
