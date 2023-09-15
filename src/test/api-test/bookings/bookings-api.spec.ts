@@ -8,8 +8,6 @@ test.describe('bookings GET methods', () => {
          const response = await request.get('/bookingSettings')
          expect(response).toBeOK()
          console.log(await response.json())
-
-
     })
 
     test('Verify that API can return bookings group by id ', async ({request}) => {
@@ -18,13 +16,10 @@ test.describe('bookings GET methods', () => {
         expect(response).toBeOK()
         console.log(await response.json())
    })
-
-
 })
 
 test.describe('bookings page PUT methods', () => {
-    test('Verify that API canput new booking group details', async ({request}) => {
-               
+    test('Verify that API canput new booking group details', async ({request}) => {    
             const response = await request.put('/bookingGroups/c70e06ec-360f-43b9-9a12-04ffa34f681a', {
                 data : {
                     name: 'tudor bking group',
@@ -45,9 +40,7 @@ test.describe('bookings page PUT methods', () => {
                     bookingSettingsId: '7cf3c7e7-aaba-4944-9a54-a10bf956e1a0'
                 }
             })
-    
     })
-
 })
 
 
@@ -73,15 +66,11 @@ test.describe('bookings page POST methods', () => {
                 bookingSettingsId: '7cf3c7e7-aaba-4944-9a54-a10bf956e1a0'
             }
         }) 
-      
-
    })
 })
 test.describe('bookings page DELETE methods', () => { 
 //     test('Verify that API can delete booking group by id ', async ({request}) => {
-            
 //         const response = await request.delete('/bookingGroups/2253b623-12cd-4f0a-bf62-09d0556f7c34')
 //         expect(response).toBeOK()
-      
 //    })
  })

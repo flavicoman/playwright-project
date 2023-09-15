@@ -1,6 +1,10 @@
 import { defineConfig } from '@playwright/test';
 export default defineConfig({
  
+  // testDir: "src/test/api-test/service-points",
+  // testDir: "src/test/api-test/schedules",
+  // testDir: "src/test/api-test/organizations",
+  // testDir: "src/test/api-test/bookings",
     testDir: "src/test/api-test/users",
     use: {
     // All requests we send go to this API endpoint.

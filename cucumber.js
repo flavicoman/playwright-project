@@ -5,7 +5,14 @@ module.exports = {
             "snippetInterface": "async-await"
         },
         "paths": [
-            "src/test/features/addMember.feature",
+            // "src/test/features/addCustomer.feature",
+            // "src/test/features/addCustomerMembership.feature",
+            // "src/test/features/editGeneralSettings.feature",
+            // "src/test/features/editMemberData.feature",
+            // "src/test/features/editMembershipsData.feature",
+            // "src/test/features/editPointOfSale.feature",
+            // "src/test/features/logout.feature",
+            "src/test/features/login.feature",
         ],
         
         "dryRun": false,
