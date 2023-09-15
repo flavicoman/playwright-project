@@ -1,14 +1,23 @@
 Feature: User Authentication Test
 
-  Background: 
+  Background:
     Given admin navigates to the application
 
-   Scenario: Verify that valid user can login 
-     When User enter the username 
-     And User enter the password 
-     And User click on the signIn button
-     Then Login should be success
-     When the User clicks on the arrow button
-     And the User clicks on the logout button
-     And the User clicks on the logout confirm button
-     #Then the user should be logged out
+  Scenario: Verify that valid user can login
+    When User enter valid username
+    And User enter valid password
+    And User click on the signIn button
+    Then Login should be success
+
+  Scenario: Verify that user can login with invalid username
+    When User enter invalid username
+    And User enter valid password
+    And User click on the signIn button
+    Then user should not be allowed to login
+
+  Scenario: Verify that user can login with invalid password
+    When User enter valid username
+    And User enter invalid password
+    And User click on the signIn button
+    Then user should be notified about wrong password
+

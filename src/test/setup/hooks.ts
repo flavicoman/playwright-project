@@ -16,7 +16,6 @@ let context: BrowserContext;
 BeforeAll(async () => {
   browser = await chromium.launch({ headless: false });
  // page = await browser.newPage();
-
   pageFixture.page = page;
   
 });
@@ -25,6 +24,7 @@ Before(async function(){
   context = await browser.newContext();
   const page = await context.newPage();
   pageFixture.page = page;
+  
 })
 
 // After(async function ({pickle}){
@@ -40,4 +40,4 @@ Before(async function(){
 //    await browser.close();
 // });
 
-export { page }; //comm for commit 
+export { page }; 

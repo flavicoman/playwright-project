@@ -6,89 +6,81 @@ import { membData } from "../pages/membershipData.page";
 let admin: membData
 
 Given('admin goes to the memberships panel', async function () {
-    admin = new membData(pageFixture.page)
+     admin = new membData(pageFixture.page)
     await new Promise(resolve => setTimeout(resolve, 3000));
-    admin.gotoMembershipSettings();
+    await admin.gotoMembershipSettings();
 });
 When('admin selects the maximum memberships allowed input box', async function () {
-    admin.selectMMAInputBox();
+    await admin.selectMMAInputBox();
 });
 
 When('admin edits the memberships number', async function () {
-    await new Promise(resolve => setTimeout(resolve, 2000));
-    admin.addMembershipsValue();
-    await new Promise(resolve => setTimeout(resolve, 4000));
+    await admin.addMembershipsValue();
 });
 
 Then('maximum value should be adjusted', async function () {
-    admin.checkAddedValue();
+    await admin.checkAddedValue();
 });
 
 Given('admin selects the “+” symbol', async function () {
-    admin.clickPlusSign()
+    await admin.clickPlusSign()
 });
 
 Given('admin adds new Name', async function () {
-    admin.addNewName()
-    await new Promise(resolve => setTimeout(resolve, 2000));
+    await  admin.addNewName()
 });
 
 Given('admin adds new  bookingGroup', async function () {
-    await new Promise(resolve => setTimeout(resolve, 2000));
-    admin.selectBookingGroup()
-    await new Promise(resolve => setTimeout(resolve, 2000));
+    await admin.selectBookingGroup()
 });
 
 Given('admin adds max hours of play', async function () {
-    await new Promise(resolve => setTimeout(resolve, 2000));
-    admin.addMaxHours()
-    await new Promise(resolve => setTimeout(resolve, 5000));
+   await admin.addMaxHours()
 });
 
 Given('admin adds months as expire date', async function () {
-    admin.addMonthsDuration()
-    await new Promise(resolve => setTimeout(resolve, 4000));
+    await  admin.addMonthsDuration()
 });
 
 Given('admin selects subscriptionPlan', async function () {
-    await new Promise(resolve => setTimeout(resolve, 4000));
-    admin.selectSubscriptionPlan()
+   await  admin.selectSubscriptionPlan()
 });
 Given('click on the save button', async function () {
-    admin.clickSavebutton()
-    await new Promise(resolve => setTimeout(resolve, 4000));
+    await  admin.clickSavebutton()
+});
+Then('save button should be enabled', async function () {
+    await  admin.checkSaveMembershipDataButton()
 });
 
 Then('New membership plan should be added', async function () {
-    admin.checkAddedMembershipPlan()
+    await new Promise(resolve => setTimeout(resolve, 2000));
+    await admin.checkAddedMembershipPlan()
 });
 
 Given('admin selects the edit option of the desired planName', async function () {
-    await new Promise(resolve => setTimeout(resolve, 4000));
-    admin.selectEditOption()
+   await  admin.selectEditOption()
 });
 
 Then('membership plan should be edited succesfully', async function () {
-    admin.checkAddedMembershipPlan()
+    await  admin.checkAddedMembershipPlan()
 });
 
 When('admin selects the three dots option of the desired planName', async function () {
-    admin.selectDotsSymbol()
+    await  admin.selectDotsSymbol()
 });
 
 When('admin clicks the delete option of the desire planName', async function () {
-    admin.selectDeleteOption()
+    await   admin.selectDeleteOption()
 });
 
 When('“Delete membership plan“ pop-up window appears', async function () {
-    await new Promise(resolve => setTimeout(resolve, 4000));
-    admin.checkDeleteMPopUp()
+   await  admin.checkDeleteMPopUp()
 });
 
 Then('admin clicks on the “Continue” button', async function () {
-    admin.clickContinue()
+    await  admin.clickContinue()
 });
 
 Then('plan should be deleted succesfully', async function () {
-    admin.checkDeletedMembership()
+    await  admin.checkDeletedMembership()
 });

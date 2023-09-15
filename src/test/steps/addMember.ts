@@ -17,37 +17,38 @@ Given('admin is logged in', async function () {
 });
 
 Given('admin navigates to the members panel', async function () {
-  //admin.goToDesiredPage(this.page.locator("div.small-format-item>>nth=1"));
-  admin.goToMembersPage();
+  await admin.goToMembersPage();
 });
 
 Given('admin clicks on the {string} button', async function (string) {
-  admin.clickPlusSign();
+ await  admin.clickPlusSign();
 });
 
 Given('admin adds valid firstName', async function () {
-  admin.addFirstName();
-  await new Promise(resolve => setTimeout(resolve, 5000));
+  await admin.addFirstName();
 });
 
 Given('admin adds valid lastName', async function () {
-  admin.addLastName();
-  await new Promise(resolve => setTimeout(resolve, 2000));
+  await admin.addLastName();
 });
 
 Given('admin adds valid phoneNumber', async function () {
-  admin.addPhoneNumber()
-  //admin.selectMembership();
+  setTimeout: 4000
+  await admin.addPhoneNumber()
 });
 
 Given('admin adds valid email', async function () {
-
-  admin.addEmail()
-  await new Promise(resolve => setTimeout(resolve, 2000));
+  await admin.addEmail()
 });
 
 Then('save button should be available', async function () {
+   await admin.checkSaveBtn()
+});
 
+
+
+Then('save button for new member should be available', async function () {
+  await admin.checkSaveButtonIsAvailable()
 });
 
 Then("click on '{}' button", async function (buttonName: string) {
@@ -55,17 +56,46 @@ Then("click on '{}' button", async function (buttonName: string) {
 });
 
 Given('admin clicks the save button', async function () {
-  admin.clickSaveButton();
-  await new Promise(resolve => setTimeout(resolve, 2000));
-
+  await admin.clickSaveButton();
 });
 
 Then('member should be added succesfully', async function () {
-
   admin.checkAddedMember();
 });
 
+When('admin adds invalid first name', async function () {
+     admin.addInvalidName()
+});
 
+When('admin adds invalid last name', async function () {
+    admin.addInvalidName()
+});
+
+Then('changes cannot be saved', async function () {
+    await admin.checkSaveBtnIsDisabled()
+});
+
+
+When('admin adds desired membership', async function () {
+   await admin.selectDesiredMembership()
+  
+});
+
+When('admin selects desired date', async function () {
+  await admin.addStartDate()
+ 
+});
+
+When('admin adds invalid member phoneNumber', async function () {
+  
+ await  admin.addInvalidEmail()
+  
+});
+
+When('admin adds invalid member email', async function () {
+  
+  await admin.addInvalidPhoneNumber()
+});
 
 
 

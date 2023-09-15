@@ -1,5 +1,5 @@
-import { expect, Locator, Page } from '@playwright/test';
-import { pageFixture } from "../setup/pageFixture";
+import { Page } from '@playwright/test';
+
 import links from "../utils/links.json"
 
 
